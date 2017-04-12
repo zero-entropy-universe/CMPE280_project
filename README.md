@@ -1,11 +1,11 @@
 # CMPE280_project
 Group project
-##Install Enviornment
-###Install Node.js
+## Install Enviornment
+### Install Node.js
 download nodejs installer according to your OS
->https://nodejs.org/en/download/
+https://nodejs.org/en/download/
 
-###Install npm
+### Install npm
 **make sure you install node correctly**
 >On Mac OS
 ```
