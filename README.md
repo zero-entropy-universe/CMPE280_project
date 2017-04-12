@@ -20,3 +20,18 @@ Open cmd using administrator
 ```
 npm install -g
 ```
+
+### Install modules
+Open cmd or terminal at the root directory of project.
+
+```
+npm install (Mac OS might ask for sudo)
+```
+
+## Run app
+
+Open cmd or terminal at the root directory of project
+```
+npm start
+```
+Open any browser and type in `localhost:3000`
