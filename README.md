@@ -17,6 +17,8 @@ node -v
 
 To test whether npm is installed, type `npm -v` in cmd/terminal 
 
+*If installed, skip this step!*
+
 >On Mac OS
 ```
 sudo npm install npm -g
