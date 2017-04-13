@@ -7,8 +7,16 @@ download nodejs installer according to your OS
 
 https://nodejs.org/en/download/
 
+Check node is successfully installed, type following code in cmd/terminal 
+```
+node -v
+```
+
 ### Install npm
-**make SURE you install node correctly**
+** normally, npm is installed after installing node **
+
+To test whether npm is installed, type `npm -v` in cmd/terminal 
+
 >On Mac OS
 ```
 sudo npm install npm -g
