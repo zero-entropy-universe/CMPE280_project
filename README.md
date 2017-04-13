@@ -31,13 +31,6 @@ Open cmd using administrator
 npm install -g
 ```
 
-### 3. Install modules
-Open cmd or terminal at the root directory of project. (Mac OS might ask for sudo)
-
-```
-npm install
-```
-
 ## Run app
 
 **Make SURE you cloned or downloaded project folder**
@@ -55,6 +48,14 @@ In the root directory, you will see this structure:
 |README.md
 ```
 
+### 1. Install modules
+Open cmd or terminal at the root directory of project. (Mac OS might ask for sudo)
+
+```
+npm install
+```
+
+### 2. Start server
 
 Open cmd or terminal at the root directory of project
 ```
