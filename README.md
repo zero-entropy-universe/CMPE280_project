@@ -43,22 +43,16 @@ npm install
 **Make SURE you cloned or downloaded project folder**
 In the root folder, you will see this structure:
 
--bin
-
--node_modules
-
--public
-
--routes
-
--views
-
-app.js
-
-package.json
-
-README.md
-
+```
+|-bin
+|-node_modules
+|-public
+|-routes
+|-views
+|app.js
+|package.json
+|README.md
+```
 
 
 Open cmd or terminal at the root directory of project
