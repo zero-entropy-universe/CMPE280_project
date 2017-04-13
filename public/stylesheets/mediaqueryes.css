@@ -1,0 +1,218 @@
+/* Large Devices, Wide Screens */
+
+@media only screen and (max-width: 1300px) {}
+
+@media only screen and (max-width: 1250px) {
+    .section-header p {
+        font-size: 25px;
+    }
+    ul.nav.navbar-nav {
+        display: none;
+    }
+    a.open-mobile-menu {
+        display: block;
+    }
+    .book-now {
+        margin-left: 0px;
+    }
+    ul.latest-offers-list {
+        display: none;
+    }
+    .btn-next, .btn-prev {
+        display: none;
+    }
+}
+
+
+/* Medium Devices, Desktops */
+
+@media only screen and (max-width: 992px) {
+    .parallax {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+    ul.latest-offers-list {
+        display: block;
+    }
+    .owl-caption h1 {
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 25px;
+        line-height: 45px;
+    }
+    .owl-caption h5 {
+        margin-top: 20px;
+    }
+    section.find-room .container>.row {
+        display: block;
+    }
+    .section-header p {
+        font-size: 24px;
+    }
+    .fontStyle .section-header p {
+        font-size: 15px;
+    }
+    .find-room .col-sm-6 .input-group {
+        margin-top: 30px;
+    }
+    .section-header {
+        margin-bottom: 20px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    h3, .our-skills-accordion .panel-title a {
+        font-size: 18px;
+    }
+    h4 {
+        font-size: 14px;
+    }
+    .find-room .section-header {
+        text-align: center;
+    }
+    a.gallery-item .custom-btn {
+        padding: 5px;
+        font-size: 14px;
+    }
+    .footer-contacts-gp {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    ul.footer-contacts-list {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    ul.footer-contacts-list li span {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    a.logo img {
+        height: 50px;
+    }
+    .fixed-header header.overlay-header a.logo img {
+        height: 30px;
+    }
+    .our-events-inner-content {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .our-events-inner-image {
+        margin: auto auto 30px auto;
+    }
+    ul.copyrights-links {
+        display: none;
+    }
+    .copyrights-content {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+
+/* Small Devices, Tablets */
+
+@media only screen and (max-width: 768px) {
+    .owl-caption h5 {
+        display: none;
+    }
+    .owl-caption h2 {
+        font-size: 30px;
+    }
+    .fontStyle .owl-caption h2 {
+        font-size: 22px;
+    }
+    h2 {
+        font-size: 22px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    h4 {
+        font-size: 14px;
+    }
+    .grid-item {
+        width: calc(50% - 5px)
+    }
+    a.gallery-item .custom-btn span p {
+        display: none;
+    }
+    a.gallery-item .custom-btn span i {
+        margin: 0px;
+    }
+    a.gallery-item .custom-btn {
+        padding: 5px 20px;
+    }
+    .counter-gp .row div:nth-child(1), .counter-gp .row div:nth-child(2) {
+        margin-bottom: 30px;
+    }
+    .inner-page-header-gp {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .inner-page ol.breadcrumb {
+        width: 100%;
+    }
+    .inner-page-header-gp .section-header {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Extra Small Devices, Phones */
+
+@media only screen and (max-width: 480px) {
+    ul.latest-offers-list {
+        display: none;
+    }
+    .grid-item {
+        width: calc(100% - 5px)
+    }
+    a.gallery-item .custom-btn span p {
+        display: block;
+    }
+    a.gallery-item .custom-btn span i {
+        margin-right: 10px;
+    }
+    a.custom-btn.book-now {
+        display: none;
+    }
+	.side-nav li a.quick-book-open{
+		display: flex;
+	}
+    .section-header-gp {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .owl-available-room {
+        margin-top: 30px;
+        text-align: center;
+    }
+    .available-room .section-header {
+        text-align: center;
+    }
+    .latest-offers-note br {
+        display: none;
+    }
+    .subscribe-gp {
+        min-width: 100%;
+    }
+}
+
+
+/* Custom, iPhone Retina */
+
+@media only screen and (max-width: 399px) {}
