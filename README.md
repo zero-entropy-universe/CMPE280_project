@@ -1,7 +1,7 @@
 # CMPE280_project
 Group project
 ## Install Enviornment
-### Install Node.js
+### 1. Install Node.js
 
 download nodejs installer according to your OS
 
@@ -12,7 +12,7 @@ Check node is successfully installed, type following code in cmd/terminal
 node -v
 ```
 
-### Install npm
+### 2. Install npm
 **normally, npm is installed after installing node**
 
 To test whether npm is installed, type `npm -v` in cmd/terminal 
@@ -31,7 +31,7 @@ Open cmd using administrator
 npm install -g
 ```
 
-### Install modules
+### 3. Install modules
 Open cmd or terminal at the root directory of project.
 
 ```
