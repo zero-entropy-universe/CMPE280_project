@@ -13,7 +13,7 @@ node -v
 ```
 
 ### Install npm
-** normally, npm is installed after installing node **
+**normally, npm is installed after installing node**
 
 To test whether npm is installed, type `npm -v` in cmd/terminal 
 
