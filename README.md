@@ -43,9 +43,9 @@ In the root directory, you will see this structure:
 |- public
 |- routes
 |- views
-|app.js
-|package.json
-|README.md
+| app.js
+| package.json
+| README.md
 ```
 
 ### 1. Install modules
