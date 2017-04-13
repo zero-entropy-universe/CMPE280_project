@@ -40,6 +40,8 @@ npm install
 
 ## Run app
 
+**Make SURE you cloned or downloaded project folder**
+
 Open cmd or terminal at the root directory of project
 ```
 npm start
