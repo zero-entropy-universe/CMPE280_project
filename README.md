@@ -41,14 +41,15 @@ npm install
 ## Run app
 
 **Make SURE you cloned or downloaded project folder**
-In the root folder, you will see this structure:
+
+In the root directory, you will see this structure:
 
 ```
-|-bin
-|-node_modules
-|-public
-|-routes
-|-views
+|- bin
+|- node_modules
+|- public
+|- routes
+|- views
 |app.js
 |package.json
 |README.md
