@@ -32,10 +32,10 @@ npm install -g
 ```
 
 ### 3. Install modules
-Open cmd or terminal at the root directory of project.
+Open cmd or terminal at the root directory of project. (Mac OS might ask for sudo)
 
 ```
-npm install (Mac OS might ask for sudo)
+npm install
 ```
 
 ## Run app
