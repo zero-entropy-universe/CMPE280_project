@@ -62,3 +62,10 @@ Open cmd or terminal at the root directory of project
 npm start
 ```
 Open any browser and type in `localhost:3000`
+
+
+1. search -> result list -> detail
+2. rank (location, type)
+3. new opening
+
+
