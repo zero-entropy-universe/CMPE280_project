@@ -7,5 +7,9 @@ module.exports = function () {
   	res.render("pages/demo");
   });
 
+  router.get("/test", function (req, res) {
+  	
+  })
+
   return router;
 };
