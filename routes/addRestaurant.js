@@ -17,6 +17,10 @@ module.exports = function (firebase) {
   router.post('/', function (req, res) {
   	var data = req.body;
   	createRestaurant(firebase, data);
+    return res.json({
+      done: true,
+      message: "restaurant inserted"
+    });
   });
 
   return router;

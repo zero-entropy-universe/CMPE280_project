@@ -1,0 +1,68 @@
+/* ====================== table ====================== */
+.table thead tr > th,
+.table thead tr > td,
+.table tbody tr > th,
+.table tbody tr > td,
+.table tfoot tr > th,
+.table tfoot tr > td {
+  border-top: 1px solid #CCC5B9; 
+}
+.table > thead > tr > th {
+  border-bottom-width: 0;
+  font-size: 1.25em;
+  font-weight: 300; 
+}
+.table .radio,
+.table .checkbox {
+  margin-top: 0;
+  margin-bottom: 22px;
+  padding: 0;
+  width: 15px; 
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 12px;
+  vertical-align: middle; 
+}
+.table .th-description {
+  max-width: 150px; 
+}
+.table .td-price {
+  font-size: 26px;
+  font-weight: 300;
+  margin-top: 5px;
+  text-align: right; 
+}
+.table .td-total {
+  font-weight: 600;
+  font-size: 1.25em;
+  padding-top: 20px;
+  text-align: right; 
+}
+.table .td-actions .btn.btn-sm, .table .td-actions .btn.btn-xs {
+  padding-left: 3px;
+  padding-right: 3px; 
+}
+.table > tbody > tr {
+  position: relative; 
+}
+/* table stript color */
+.table-striped tbody > tr:nth-of-type(2n+1) {
+  background-color: #fff; 
+}
+.table-striped tbody > tr:nth-of-type(2n) {
+  background-color: #FFFCF5; 
+} /* end  stript color*/
+
+.table-striped > thead > tr > th,
+.table-striped > tbody > tr > th,
+.table-striped > tfoot > tr > th,
+.table-striped > thead > tr > td,
+.table-striped > tbody > tr > td,
+.table-striped > tfoot > tr > td {
+  padding: 15px 8px; 
+}

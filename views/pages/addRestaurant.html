@@ -214,32 +214,72 @@
 		    	var description = $("#idDescription").val();
 
 		    	if (name == "" || category == "" || phone == "" || address == "" || city == "" || state == "" || zip == "") {
+		    		showNotification("top", "center", "warning", "please fill all blanks");
 		    		return;
 		    	}
 
 		    	// open hours
-		    	var openMon = $("#timepickerMon1").val();
-		    	var closeMon = $("#timepickerMon2").val();
-		    	var openTue = $("#timepickerTue1").val();
-		    	var closeTue = $("#timepickerTue2").val();
-		    	var openWed = $("#timepickerWed1").val();
-		    	var closeWed = $("#timepickerWed2").val();
-					var openThu = $("#timepickerThu1").val();
-		    	var closeThu = $("#timepickerThu2").val();
-		    	var openFri = $("#timepickerFri1").val();
-		    	var closeFri = $("#timepickerFri2").val();
-		    	var openSat = $("#timepickerSat1").val();
-		    	var closeSat = $("#timepickerSat2").val();
-		    	var openSun = $("#timepickerSun1").val();
-		    	var closeSun = $("#timepickerSun2").val();
-
+		    	// Monday
+		    	if ($("#timepickerMon1").is(':disabled')) {
+		    		var openMon = "close";
+		    		var closeMon = "close";
+		    	} else {
+		    		openMon = $("#timepickerMon1").val();
+		    		closeMon = $("#timepickerMon2").val();
+		    	}
+					// Tuesday
+		    	if ($("#timepickerTue1").is(':disabled')) {
+						var openTue = "close";
+			    	var closeTue = "close";
+		    	} else {
+		    		openTue = $("#timepickerTue1").val();
+		    		closeTue = $("#timepickerTue2").val();
+		    	}
+					// Wednesday
+		    	if ($("#timepickerWed1").is(':disabled')) {
+						var openWed = "close";
+			    	var closeWed = "close";
+		    	} else {
+		    		openWed = $("#timepickerWed1").val();
+		    		closeWed = $("#timepickerWed2").val();
+		    	}
+					// Thursday
+		    	if ($("#timepickerThu1").is(':disabled')) {
+						var openThu = "close";
+			    	var closeThu = "close";
+		    	} else {
+		    		openThu = $("#timepickerThu1").val();
+		    		closeThu = $("#timepickerThu2").val();
+		    	}
+					// Friday
+		    	if ($("#timepickerFri1").is(':disabled')) {
+						var openFri = "close";
+			    	var closeFri = "close";
+		    	} else {
+		    		openFri = $("#timepickerFri1").val();
+		    		closeFri = $("#timepickerFri2").val();
+		    	}
+					// Monday
+		    	if ($("#timepickerSat1").is(':disabled')) {
+						var openSat = "close";
+			    	var closeSat = "close";
+		    	} else {
+		    		openSat = $("#timepickerSat1").val();
+		    		closeSat = $("#timepickerSat2").val();
+		    	}
+					// Satureday
+		    	if ($("#timepickerSun1").is(':disabled')) {
+						var openSun = "close";
+			    	var closeSun = "close";
+		    	} else {
+		    		openSun = $("#timepickerSun1").val();
+		    		closeSun = $("#timepickerSun2").val();
+		    	}
+					// Sunday
 		    	if (openMon == "" || closeMon == "" || openTue == "" || closeTue == "" || openWed == "" || closeWed == "" || openThu == "" || closeThu == "" || openFri == "" || closeFri == "" || openSat == "" || closeSat == "" || openSun == "" || closeSun == "") {
+		    		showNotification("top", "center", "warning", "please fill all blanks");
 		    		return;
 		    	}
-
-		    	
-
-		    	// console.log(categoryObj);
 
 	/*	    	var openHours = {
 		    		"Monday": [openMon, closeMon],
@@ -272,40 +312,40 @@
 		    		openMon, closeMon, openTue, closeTue, openWed, closeWed, openThu, closeThu, openFri, closeFri, openSat, closeSat,
 		    	];*/
 
-		    	var monday = {
-		    		openMon : true,
-		    		closeMon: true
-		    	};
+		    	// var monday = {
+		    	// 	openMon : true,
+		    	// 	closeMon: true
+		    	// };
 
-		    	var tuesday = {
-		    		openTue : true,
-		    		closeTue: true
-		    	};
+		    	// var tuesday = {
+		    	// 	openTue : true,
+		    	// 	closeTue: true
+		    	// };
 
-		    	var wednesday = {
-		    		openWed : true,
-		    		closeWed: true
-		    	};
+		    	// var wednesday = {
+		    	// 	openWed : true,
+		    	// 	closeWed: true
+		    	// };
 
-		    	var thursday = {
-		    		openThu : true,
-		    		closeThu: true
-		    	};
+		    	// var thursday = {
+		    	// 	openThu : true,
+		    	// 	closeThu: true
+		    	// };
 
-	    	  var friday = {
-		    		openFri : true,
-		    		closeFri: true
-		    	};
+	    	 //  var friday = {
+		    	// 	openFri : true,
+		    	// 	closeFri: true
+		    	// };
 
-		    	var saturday = {
-		    		openSat : true,
-		    		closeSat: true
-		    	};
+		    	// var saturday = {
+		    	// 	openSat : true,
+		    	// 	closeSat: true
+		    	// };
 
-		    	var sunday = {
-		    		openSun : true,
-		    		closeSun: true
-		    	};
+		    	// var sunday = {
+		    	// 	openSun : true,
+		    	// 	closeSun: true
+		    	// };
 
 		    	// console.log(openHours);
 
@@ -334,6 +374,11 @@
 		    	console.log(data);
 
 		    	$.post("/addRestaurant", data, function (res) {
+		    		if (res.done) {
+		    			showNotification("top", "center", "info", "Your restaurant is online!!!");
+		    		} else {
+		    			showNotification("top", "center", "warning", "Sorry, please try again");
+		    		}
 		    		
 		    	})
 		    });
@@ -343,13 +388,29 @@
 		    	$(this).siblings("div").children("input").prop('disabled', true);
 		    	$(this).addClass("hidden");
 		    	$(this).siblings("button").removeClass("hidden");
-		    })
+		    });
 				// on-click listener for open
 		    $(".myBtnOpen").on("click", function () {
 		    	$(this).siblings("div").children("input").prop('disabled', false);
 		    	$(this).addClass("hidden");
 		    	$(this).siblings("button").removeClass("hidden");
-		    })
+		    });
+
+		    // show notification
+		    function showNotification(from, align, type, message){
+					
+					$.notify({
+				    	icon: "ti-gift",
+				    	message: message
+				    },{
+				        type: "warning",
+				        timer: 4000,
+				        placement: {
+				            from: from,
+				            align: align
+				        }
+				    });
+				}
 
 	    });
 	  </script>
