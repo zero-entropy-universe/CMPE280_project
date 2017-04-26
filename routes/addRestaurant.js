@@ -38,6 +38,36 @@ function createRestaurant(firebase, data) {
   	close : data.monday_close
   };
 
+  var tuesday = {
+  	open : data.tuesday_open,
+  	close : data.tuesday_close
+  };
+
+  var wednesday = {
+  	open : data.wednesday_open,
+  	close : data.wednesday_close
+  };
+
+  var thursday = {
+  	open : data.thursday_open,
+  	close : data.thursday_close
+  };
+
+  var friday = {
+  	open : data.friday_open,
+  	close : data.friday_close
+  };
+
+  var saturday = {
+  	open : data.saturday_open,
+  	close : data.saturday_close
+  };
+
+  var sunday = {
+  	open : data.sunday_open,
+  	close : data.sunday_close
+  };
+
   console.log(monday);
 
   newRestaurantRef.set({
@@ -47,12 +77,13 @@ function createRestaurant(firebase, data) {
   	address: data.address,
   	description: data.description,
   	openHours: {
-  		Monday: monday
-/*  		Tuesday: {data.Tuesday[0] : true, data.Tuesday[1] : true},
-  		Wednesday: {data.Wednesday[0] : true, data.Wednesday[1] : true},
-  		Thursday: {data.Thursday[0] : true, data.Thursday[1] : true},
-  		Friday: {data.Friday[0] : true, data.Friday[1] : true},
-  		Saturday: {data.Saturday[0] : true, data.Saturday[1] : true},*/
+  		Monday: monday,
+  		Tuesday: tuesday,
+  		Wednesday: wednesday,
+  		Thursday: thursday,
+  		Friday: friday,
+  		Saturday: saturday,
+  		Sunday: sunday
   	}
   });
 

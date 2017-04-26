@@ -1,285 +1,357 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<% include ../partials/head %>
-</head>
-<body>
-	<% include ../partials/nav %>
-		<div class="container">
-			<div class="row">
-				<div class="jumbotron">
-					<div class="card">
-	          <div class="header">
-	            <h4 class="title">Add Restaurant</h4>
-	          </div>
-	          <div class="content">
-	            <!-- <form> -->
-	              <div class="row"> 
-	                <div class="col-md-5">
-	                  <div class="form-group">
-                      <label>Name</label>
-                      <input type="text" class="form-control border-input" id="idName" required="true" placeholder="Restaurant Name">
-	                  </div>
-	                </div>
-	                <div class="col-md-3">
-	                  <div class="form-group">
-                      <label>Category</label>
-                      <select class="form-control border-input" id="categorySelector">
-                      	<% for (var i = 0; i < categoryList.length; i++) { %>
-													<option><%= categoryList[i] %></option>
-                      	<% } %>
-                      </select>
-	                  </div>
-	                </div>
-	              	<div class="col-md-4">
-	                  <div class="form-group">
-	                    <label>Phone</label>
-	                    <input type="text" class="form-control border-input" id="idPhone" required="true" placeholder="Phone">
-	                  </div>
-	                </div>
-	              </div>
+	<head>
+		<% include ../partials/head %>
+	</head>
+	<body>
+		<% include ../partials/nav %>
+			<div class="container">
+				<div class="row">
+					<div class="jumbotron">
+						<div class="card">
+		          <div class="header">
+		            <h4 class="title">Add Restaurant</h4>
+		          </div>
+		          <div class="content">
+		            <!-- <form> -->
+		              <div class="row"> 
+		                <div class="col-md-5">
+		                  <div class="form-group">
+	                      <label>Name</label>
+	                      <input type="text" class="form-control border-input" id="idName" required="true" placeholder="Restaurant Name">
+		                  </div>
+		                </div>
+		                <div class="col-md-3">
+		                  <div class="form-group">
+	                      <label>Category</label>
+	                      <select class="form-control border-input" id="categorySelector">
+	                      	<% for (var i = 0; i < categoryList.length; i++) { %>
+														<option><%= categoryList[i] %></option>
+	                      	<% } %>
+	                      </select>
+		                  </div>
+		                </div>
+		              	<div class="col-md-4">
+		                  <div class="form-group">
+		                    <label>Phone</label>
+		                    <input type="text" class="form-control border-input" id="idPhone" required="true" placeholder="Phone">
+		                  </div>
+		                </div>
+		              </div>
 
-	              <div class="row">
-	                <div class="col-md-12">
-	                  <div class="form-group">
-	                    <label>Address</label>
-	                    <input type="text" class="form-control border-input" id="idAddress" required="true" placeholder="Address">
-	                  </div>
-	                </div>
-	              </div>
+		              <div class="row">
+		                <div class="col-md-12">
+		                  <div class="form-group">
+		                    <label>Address</label>
+		                    <input type="text" class="form-control border-input" id="idAddress" required="true" placeholder="Address">
+		                  </div>
+		                </div>
+		              </div>
 
-	              <div class="row">
-	                <div class="col-md-4">
-	                  <div class="form-group">
-	                    <label>City</label>
-	                    <input type="text" class="form-control border-input" id="idCity" required="true" placeholder="City">
+		              <div class="row">
+		                <div class="col-md-4">
+		                  <div class="form-group">
+		                    <label>City</label>
+		                    <input type="text" class="form-control border-input" id="idCity" required="true" placeholder="City">
+		                  </div>
+		                </div>
+		                <div class="col-md-4">
+		                  <div class="form-group">
+		                    <label>State</label>
+		                    <input type="text" class="form-control border-input" id="idState" required="true" placeholder="State">
+		                  </div>
+		                </div>
+		                <div class="col-md-4">
+		                  <div class="form-group">
+		                    <label>Zip Code</label>
+		                    <input type="number" class="form-control border-input" id="idZip" required="true"  placeholder="ZIP Code">
+		                  </div>
+		                </div>
+		              </div>
+									<hr>
+		              <div class="row"> <!-- open hours -->
+										<div class="col-md-2"> <!-- monday -->
+											<label>Monday</label>&nbsp;
+											<button class="btn btn-warning btn-xs myBtnClose">close</button>
+											<button class="btn btn-success btn-xs myBtnOpen hidden">Open</button>
+											<div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerMon1" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+							        <br>
+							        <div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerMon2" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+										</div> <!-- end monday-->
+										<div class="col-md-2"> <!-- Tuesday -->
+											<label>Tuesday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
+											<button class="btn btn-success btn-xs myBtnOpen hidden">Open</button>
+											<div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerTue1" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+							        <br>
+							        <div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerTue2" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+										</div> <!-- end Tuesday-->
+										<div class="col-md-2"> <!-- Wednesday -->
+											<label>Wednesday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
+											<button class="btn btn-success btn-xs myBtnOpen hidden">Open</button>
+											<div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerWed1" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+							        <br>
+							        <div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerWed2" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+										</div> <!-- end Wednesday-->
+										<div class="col-md-2"> <!-- Thursday -->
+											<label>Thursday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
+											<button class="btn btn-success btn-xs myBtnOpen hidden">Open</button>
+											<div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerThu1" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+							        <br>
+							        <div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerThu2" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+										</div> <!-- end Thursday-->
+										<div class="col-md-2"> <!-- Friday -->
+											<label>Friday</label>&nbsp;
+											<button class="btn btn-warning btn-xs myBtnClose">close</button>
+											<button class="btn btn-success btn-xs myBtnOpen hidden">Open</button>
+											<div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerFri1" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+							        <br>
+							        <div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerFri2" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+										</div> <!-- end Friday-->
+										<div class="col-md-2"> <!-- Saturday -->
+											<label>Saturday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
+											<button class="btn btn-success btn-xs myBtnOpen hidden">Open</button>
+											<div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerSat1" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+							        <br>
+							        <div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerSat2" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+										</div> <!-- end Saturday-->
+										<div class="col-md-2"> <!-- Sunday -->
+											<label>Sunday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
+											<button class="btn btn-success btn-xs myBtnOpen hidden">Open</button>
+											<div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerSun1" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+							        <br>
+							        <div class="input-group bootstrap-timepicker timepicker">
+						            <input id="timepickerSun2" type="text" class="form-control input-small">
+						            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+							        </div>
+										</div> <!-- end Sunday-->
+		              </div> <!-- end open hours -->
+									<hr>
+									<div class="row">
+										<div class="col-md-12">
+	                    <div class="form-group">
+	                        <label>Description</label>
+	                        <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" id="idDescription"></textarea>
+	                    </div>
 	                  </div>
-	                </div>
-	                <div class="col-md-4">
-	                  <div class="form-group">
-	                    <label>State</label>
-	                    <input type="text" class="form-control border-input" id="idState" required="true" placeholder="State">
-	                  </div>
-	                </div>
-	                <div class="col-md-4">
-	                  <div class="form-group">
-	                    <label>Zip Code</label>
-	                    <input type="number" class="form-control border-input" id="idZip" required="true"  placeholder="ZIP Code">
-	                  </div>
-	                </div>
-	              </div>
-								<hr>
-	              <div class="row"> <!-- open hours -->
-									<div class="col-md-2"> <!-- monday -->
-										<label>Monday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
-										<div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerMon1" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-						        <br>
-						        <div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerMon2" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-									</div> <!-- end monday-->
-									<div class="col-md-2"> <!-- Tuesday -->
-										<label>Tuesday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
-										<div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerTue1" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-						        <br>
-						        <div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerTue2" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-									</div> <!-- end Tuesday-->
-									<div class="col-md-2"> <!-- Wednesday -->
-										<label>Wednesday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
-										<div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerWed1" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-						        <br>
-						        <div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerWed2" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-									</div> <!-- end Wednesday-->
-									<div class="col-md-2"> <!-- Thursday -->
-										<label>Thursday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
-										<div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerThu1" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-						        <br>
-						        <div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerThu2" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-									</div> <!-- end Thursday-->
-									<div class="col-md-2"> <!-- Friday -->
-										<label>Friday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
-										<div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerFri1" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-						        <br>
-						        <div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerFri2" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-									</div> <!-- end Friday-->
-									<div class="col-md-2"> <!-- Saturday -->
-										<label>Saturday</label>&nbsp;<button class="btn btn-warning btn-xs myBtnClose">close</button>
-										<div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerSat1" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-						        <br>
-						        <div class="input-group bootstrap-timepicker timepicker">
-					            <input id="timepickerSat2" type="text" class="form-control input-small">
-					            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-						        </div>
-									</div> <!-- end Saturday-->
-	              </div> <!-- end open hours -->
-								<hr>
-								<div class="row">
-									<div class="col-md-12">
-                    <div class="form-group">
-                        <label>Description</label>
-                        <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" id="idDescription"></textarea>
-                    </div>
-                  </div>
-								</div>
-	              <div class="text-center">
-	                <button type="button" class="btn btn-info" id="btnCreateRes">Create Restaurant</button>
-	              </div>
-	              <!-- <div class="clearfix"></div> -->
-	            <!-- </form> -->
-	          </div>
-	        </div> <!-- end card -->
-				</div> <!-- end jumbotron -->
+									</div>
+		              <div class="text-center">
+		                <button type="button" class="btn btn-info" id="btnCreateRes">Create Restaurant</button>
+		              </div>
+		              <!-- <div class="clearfix"></div> -->
+		            <!-- </form> -->
+		          </div>
+		        </div> <!-- end card -->
+					</div> <!-- end jumbotron -->
+				</div>
 			</div>
-		</div>
-	<% include ../partials/footer%>
-  <script type="text/javascript">
-    $(document).ready(function(){
-    	// init timepicker
-	    $('#timepickerMon1').timepicker();
-	    $('#timepickerMon2').timepicker();
-	    $('#timepickerTue1').timepicker();
-	    $('#timepickerTue2').timepicker();
-	    $('#timepickerWed1').timepicker();
-	    $('#timepickerWed2').timepicker();
-	    $('#timepickerThu1').timepicker();
-	    $('#timepickerThu2').timepicker();
-	    $('#timepickerFri1').timepicker();
-	    $('#timepickerFri2').timepicker();
-	    $('#timepickerSat1').timepicker();
-	    $('#timepickerSat2').timepicker();
-			// on-click listener for creating restaurant
-	    $("#btnCreateRes").on("click", function () {
-	    	console.log('click');
-	    	var name = $("#idName").val();
-	    	var category = $("#categorySelector option:selected").val();
-	    	var phone = $("#idPhone").val();
-	    	var address = $("#idAddress").val();
-	    	var city = $("#idCity").val();
-	    	var state = $("#idState").val();
-	    	var zip = $("#idZip").val();
-	    	var description = $("#idDescription").val();
+		<% include ../partials/footer%>
+	  <script type="text/javascript">
+	    $(document).ready(function(){
+	    	// init timepicker
+		    $('#timepickerMon1').timepicker();
+		    $('#timepickerMon2').timepicker();
+		    $('#timepickerTue1').timepicker();
+		    $('#timepickerTue2').timepicker();
+		    $('#timepickerWed1').timepicker();
+		    $('#timepickerWed2').timepicker();
+		    $('#timepickerThu1').timepicker();
+		    $('#timepickerThu2').timepicker();
+		    $('#timepickerFri1').timepicker();
+		    $('#timepickerFri2').timepicker();
+		    $('#timepickerSat1').timepicker();
+		    $('#timepickerSat2').timepicker();
+		    $('#timepickerSun1').timepicker();
+		    $('#timepickerSun2').timepicker();
+				// on-click listener for creating restaurant
+		    $("#btnCreateRes").on("click", function () {
+		    	console.log('click');
+		    	var name = $("#idName").val();
+		    	var category = $("#categorySelector option:selected").val();
+		    	var phone = $("#idPhone").val();
+		    	var address = $("#idAddress").val();
+		    	var city = $("#idCity").val();
+		    	var state = $("#idState").val();
+		    	var zip = $("#idZip").val();
+		    	var description = $("#idDescription").val();
 
-	    	if (name == "" || category == "" || phone == "" || address == "" || city == "" || state == "" || zip == "") {
-	    		return;
-	    	}
+		    	if (name == "" || category == "" || phone == "" || address == "" || city == "" || state == "" || zip == "") {
+		    		return;
+		    	}
 
-	    	// open hours
-	    	var openMon = $("#timepickerMon1").val();
-	    	var closeMon = $("#timepickerMon2").val();
-	    	var openTue = $("#timepickerTue1").val();
-	    	var closeTue = $("#timepickerTue2").val();
-	    	var openWed = $("#timepickerWed1").val();
-	    	var closeWed = $("#timepickerWed2").val();
-				var openThu = $("#timepickerThu1").val();
-	    	var closeThu = $("#timepickerThu2").val();
-	    	var openFri = $("#timepickerFri1").val();
-	    	var closeFri = $("#timepickerFri2").val();
-	    	var openSat = $("#timepickerSat1").val();
-	    	var closeSat = $("#timepickerSat2").val();
+		    	// open hours
+		    	var openMon = $("#timepickerMon1").val();
+		    	var closeMon = $("#timepickerMon2").val();
+		    	var openTue = $("#timepickerTue1").val();
+		    	var closeTue = $("#timepickerTue2").val();
+		    	var openWed = $("#timepickerWed1").val();
+		    	var closeWed = $("#timepickerWed2").val();
+					var openThu = $("#timepickerThu1").val();
+		    	var closeThu = $("#timepickerThu2").val();
+		    	var openFri = $("#timepickerFri1").val();
+		    	var closeFri = $("#timepickerFri2").val();
+		    	var openSat = $("#timepickerSat1").val();
+		    	var closeSat = $("#timepickerSat2").val();
+		    	var openSun = $("#timepickerSun1").val();
+		    	var closeSun = $("#timepickerSun2").val();
 
-	    	if (openMon == "" || closeMon == "" || openTue == "" || closeTue == "" || openWed == "" || closeWed == "" || openThu == "" || closeThu == "" || openFri == "" || closeFri == "" || openSat == "" || closeSat == "") {
-	    		return;
-	    	}
+		    	if (openMon == "" || closeMon == "" || openTue == "" || closeTue == "" || openWed == "" || closeWed == "" || openThu == "" || closeThu == "" || openFri == "" || closeFri == "" || openSat == "" || closeSat == "" || openSun == "" || closeSun == "") {
+		    		return;
+		    	}
 
-	    	
+		    	
 
-	    	// console.log(categoryObj);
+		    	// console.log(categoryObj);
 
-/*	    	var openHours = {
-	    		"Monday": [openMon, closeMon],
-	    		"Tuesday": [openTue, closeTue],
-	    		"Wednesday": [openWed, closeWed],
-	    		"Thursday": [openThu, closeThu],
-	    		"Friday": [openFri, closeFri],
-	    		"Saturday": [openSat, closeSat]
-	    	}*/
+	/*	    	var openHours = {
+		    		"Monday": [openMon, closeMon],
+		    		"Tuesday": [openTue, closeTue],
+		    		"Wednesday": [openWed, closeWed],
+		    		"Thursday": [openThu, closeThu],
+		    		"Friday": [openFri, closeFri],
+		    		"Saturday": [openSat, closeSat]
+		    	}*/
 
-/*	    	var openHours1 = [
-	    		[openMon, closeMon],
-	    		[openTue, closeTue],
-	    		[openWed, closeWed],
-	    		[openThu, closeThu],
-	    		[openFri, closeFri],
-	    		[openSat, closeSat]
-	    	]*/
+	/*	    	var openHours1 = [
+		    		[openMon, closeMon],
+		    		[openTue, closeTue],
+		    		[openWed, closeWed],
+		    		[openThu, closeThu],
+		    		[openFri, closeFri],
+		    		[openSat, closeSat]
+		    	]*/
 
-/*	    	var openHours = [
-	    		{"Monday" : [openMon, closeMon]},
-	    		{"Tuesday": [openTue, closeTue]},
-	    		{"Wednesday": [openWed, closeWed]},
-	    		{"Thursday": [openThu, closeThu]},
-	    		{"Friday": [openFri, closeFri]},
-	    		{"Saturday": [openSat, closeSat]}
-	    	];*/
+	/*	    	var openHours = [
+		    		{"Monday" : [openMon, closeMon]},
+		    		{"Tuesday": [openTue, closeTue]},
+		    		{"Wednesday": [openWed, closeWed]},
+		    		{"Thursday": [openThu, closeThu]},
+		    		{"Friday": [openFri, closeFri]},
+		    		{"Saturday": [openSat, closeSat]}
+		    	];*/
 
-/*	    	var openHours = [
-	    		openMon, closeMon, openTue, closeTue, openWed, closeWed, openThu, closeThu, openFri, closeFri, openSat, closeSat,
-	    	];*/
+	/*	    	var openHours = [
+		    		openMon, closeMon, openTue, closeTue, openWed, closeWed, openThu, closeThu, openFri, closeFri, openSat, closeSat,
+		    	];*/
 
-	    	var monday = {
-	    		openMon : true,
-	    		closeMon: true
-	    	};
+		    	var monday = {
+		    		openMon : true,
+		    		closeMon: true
+		    	};
 
-	    	// console.log(openHours);
+		    	var tuesday = {
+		    		openTue : true,
+		    		closeTue: true
+		    	};
 
-	    	var data = {
-	    		name : name,
-	    		category : category,
-	    		phone: phone,
-	    		address: address + ", " + city + ", " + state + zip,
-	    		description: description,
-	    		monday_open : openMon, 
-	    		monday_close : closeMon
-	    	}
+		    	var wednesday = {
+		    		openWed : true,
+		    		closeWed: true
+		    	};
 
-	    	console.log(data);
+		    	var thursday = {
+		    		openThu : true,
+		    		closeThu: true
+		    	};
 
-	    	$.post("/addRestaurant", data, function (res) {
-	    		
-	    	})
+	    	  var friday = {
+		    		openFri : true,
+		    		closeFri: true
+		    	};
+
+		    	var saturday = {
+		    		openSat : true,
+		    		closeSat: true
+		    	};
+
+		    	var sunday = {
+		    		openSun : true,
+		    		closeSun: true
+		    	};
+
+		    	// console.log(openHours);
+
+		    	var data = {
+		    		name : name,
+		    		category : category,
+		    		phone: phone,
+		    		address: address + ", " + city + ", " + state + zip,
+		    		description: description,
+		    		monday_open : openMon, 
+		    		monday_close : closeMon,
+		    		tuesday_open : openTue, 
+		    		tuesday_close : closeTue,
+		    		wednesday_open : openWed, 
+		    		wednesday_close : closeWed,
+		    		thursday_open : openThu, 
+		    		thursday_close : closeThu,
+		    		friday_open : openFri, 
+		    		friday_close : closeFri,
+		    		saturday_open : openSat, 
+		    		saturday_close : closeSat,
+		    		sunday_open : openSun, 
+		    		sunday_close : closeSun
+		    	}
+
+		    	console.log(data);
+
+		    	$.post("/addRestaurant", data, function (res) {
+		    		
+		    	})
+		    });
+
+		    // on-click listener for close
+		    $(".myBtnClose").on("click", function () {
+		    	$(this).siblings("div").children("input").prop('disabled', true);
+		    	$(this).addClass("hidden");
+		    	$(this).siblings("button").removeClass("hidden");
+		    })
+				// on-click listener for open
+		    $(".myBtnOpen").on("click", function () {
+		    	$(this).siblings("div").children("input").prop('disabled', false);
+		    	$(this).addClass("hidden");
+		    	$(this).siblings("button").removeClass("hidden");
+		    })
+
 	    });
-
-	    // on-click listener for close
-	    $(".myBtnClose").on("click", function () {
-	    	$(this).siblings("div").children("input").disabled;
-	    })
-
-    });
-  </script>
-</body>
-
-
-
+	  </script>
+	</body>
 </html>
