@@ -72,29 +72,7 @@ Open any browser and type in `localhost:3000`
 
 ## Development Guide
 
-For normal development, there are three places need to modified
-```
-views/pages
-```
-```
-routes
-```
-```
-app.js
-```
-#### routes
->
-This folder contains router file. (javascript file)
-Routers' purpose:
-1. routes request from user end to server
-2. handles data manipulation such as pre-processing data in order to simplify data loading process in HTML file
-3. renders HTML files which are coresponding to certain URLs
-
-
-
-#### views/pages 
->
-This folder contains normal html files.
+http://www.jianshu.com/p/52cd934ead29
 
 
 
