@@ -4,9 +4,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var firebase = require('firebase');
 
-var index = require('./routes/index');
-var demo = require('./routes/demo');
+// setup firebase
+var config = {
+  apiKey: "AIzaSyBKfaN-XN9UcZJ2SJ_ti1YgZoOyFI6XDfE",
+  authDomain: "cmpe280-7f761.firebaseapp.com",
+  databaseURL: "https://cmpe280-7f761.firebaseio.com",
+  projectId: "cmpe280-7f761",
+  storageBucket: "cmpe280-7f761.appspot.com",
+  messagingSenderId: "440824295674"
+};
+
+firebase.initializeApp(config);
+firebase.auth().signInWithEmailAndPassword("test001@gmail.com", "test001").catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log(errorCode, errorMessage);
+});
+
+console.log("firebase");
 
 var app = express();
 
@@ -15,7 +33,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,9 +40,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '/public')));
 app.set('views', path.join(__dirname, 'views/')); // set view path
 
+// import routers
+var index = require('./routes/index')();
+var demo = require('./routes/demo')();
+var test = require('./routes/test')(firebase);
+var addRestaurant = require('./routes/addRestaurant')(firebase);
+
 // Route url to routers
 app.use('/', index);
 app.use('/demo', demo);
+app.use('/test', test);
+app.use('/addRestaurant', addRestaurant);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
