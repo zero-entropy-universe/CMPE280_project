@@ -8,7 +8,7 @@ var firebase = require('firebase');
 
 // setup firebase
 var config = {
-  apiKey: "XXX",
+  apiKey: "AIzaSyBKfaN-XN9UcZJ2SJ_ti1YgZoOyFI6XDfE",
   authDomain: "cmpe280-7f761.firebaseapp.com",
   databaseURL: "https://cmpe280-7f761.firebaseio.com",
   projectId: "cmpe280-7f761",
@@ -17,7 +17,7 @@ var config = {
 };
 
 firebase.initializeApp(config);
-firebase.auth().signInWithEmailAndPassword("XXX", "XXX").catch(function(error) {
+firebase.auth().signInWithEmailAndPassword("test001@gmail.com", "test001").catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
   var errorMessage = error.message;
