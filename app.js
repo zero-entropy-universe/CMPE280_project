@@ -52,7 +52,7 @@ app.use('/', index);
 app.use('/demo', demo);
 app.use('/test', test);
 app.use('/addRestaurant', addRestaurant);
-app.use('newRes',newRes);
+app.use('/newRes',newRes);
 
 
 // catch 404 and forward to error handler
