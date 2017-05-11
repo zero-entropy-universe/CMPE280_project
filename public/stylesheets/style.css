@@ -2,7 +2,7 @@
 /******************** override *********************/
 /***************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td {
-  font-family: 'Muli', "Helvetica", Arial, sans-serif;
+  font-family:  "Open Sans";
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
@@ -103,18 +103,26 @@ a {
   background-color: #E3E3E3; }
 
 
+
 /***************************************************/
 /*********************  footer  ********************/
 /***************************************************/
 #myFooter {
-    background-color: #f4f3ef;
-    color: #9A9A9A;
+
     height: 60px;
+
 }
 
-#myFooter .container {
-	padding: 15px;
-	text-align: center;
+#bottomFooter {
+    border-top: 1px solid;
+    border-top-color: #979797;
+
+	text-align: right;
+}
+ #footerIcon  {
+  width:60px;
+  height: 50px;
+  float: right;
 }
 
 /***************************************************/
