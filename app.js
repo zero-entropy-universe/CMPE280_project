@@ -54,8 +54,8 @@ app.use('/demo', demo);
 app.use('/test', test);
 app.use('/addRestaurant', addRestaurant);
 app.use('/newRes',newRes);
-app.get('/restDetail/:id', restDetail);
-app.use('/restDetail',restDetail);
+// app.get('/restDetail/:id', restDetail);
+app.use('/restDetail', restDetail);
 
 
 // catch 404 and forward to error handler

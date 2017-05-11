@@ -1,76 +1,81 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<% include ../partials/head %>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
-    <style>
-    html,
-    body {
-      font-family: Arial, sans-serif;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    #map {
-    height: 300px;
-    width: 300px;
-    }
-    /*.row {
-      height: 300px;
-      margin-top: 100px;
-    }*/
+<head>
+	<% include ../partials/head %>
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
+	<style>
+	html,
+	body {
+		font-family: Arial, sans-serif;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	#map {
+		height: 300px;
+		width: 300px;
+	}
+	/*.row {
+	height: 300px;
+	margin-top: 100px;
+	}*/
 
-    </style>
-	</head>
-	<body>
-		<% include ../partials/nav %>
-    <div class="container">
-      <div class="row">
-        <div class="store col-6">
-          <h2>Our Location</h2>
-          <div id="address"></div>
-          <phone>
-            <abbr>P:</abbr> +669 241 8429
-          </phone>
-        </div>
+	</style>
+</head>
+<body>
+	<% include ../partials/nav %>
+	<div class="container">
+		<div class="row">
+			<div class="store col-6">
+				<h2>Our Location</h2>
+				<div id="address"></div>
+				<phone>
+					<abbr>P:</abbr> +669 241 8429
+				</phone>
+			</div>
 
-        <div  id="map" class="col-6"></div>
+			<div  id="map" class="col-6"></div>
 
-      </div>
+		</div>
 
-      <div class="row comments">
-        <h2>Comments</h2>
-      </div>
-    </div>
+		<div class="row comments">
+			<h2>Comments</h2>
+		</div>
+
+		<div class="data">
+			<!-- <h2>Comments</h2> -->
+			<%= restaurantList[0] %>
+		</div>
+	</div>
 
 
-    <script>
-    var map;
-    function initMap() {
-      // Constructor creates a new map - only center and zoom are required.
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 37.335187, lng: -121.881072},
-        // Map Coordinates of Selected Location
-        // Latitude:N 24° 57' 53.5248"
-        // Longitude:E 121° 32' 52.3284"
-        // Latitude:24° 57.89208'
-        // Longitude:121° 32.87214'
-        // Latitude:24.964868°
-        // Longitude:121.547869°
-        zoom: 17
-      });
-    }
-    </script>
+	<script>
+	var map;
+	function initMap() {
+		// Constructor creates a new map - only center and zoom are required.
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: 37.335187, lng: -121.881072},
+			// Map Coordinates of Selected Location
+			// Latitude:N 24° 57' 53.5248"
+			// Longitude:E 121° 32' 52.3284"
+			// Latitude:24° 57.89208'
+			// Longitude:121° 32.87214'
+			// Latitude:24.964868°
+			// Longitude:121.547869°
+			zoom: 17
+		});
+	}
+	</script>
 
-    <script>
-    var address = "1 Washington Sq, San Jose, CA 95192";
-    document.getElementById("address").innerHTML = address;
-    </script>
+	<script>
+	var address = "1 Washington Sq, San Jose, CA 95192";
+	document.getElementById("address").innerHTML = address;
+	</script>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X4b-bn6IjOnnJxtyAKQlRO8dF0iV00s&v=3&callback=initMap">
-    </script>
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X4b-bn6IjOnnJxtyAKQlRO8dF0iV00s&v=3&callback=initMap">
+	</script>
 
-		<% include ../partials/footer %>
-	</body>
+
+</body>
 </html>
