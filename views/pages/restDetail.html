@@ -12,8 +12,8 @@
 		padding: 0;
 	}
 	#map {
-		height: 600px;
-		width: 600px;
+		height: 300px;
+		width: 500px;
 	}
 	/*.row {
 	height: 300px;
@@ -27,8 +27,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-6">
-				<div  id="map" class=""></div>
-				<!-- <h2>Our Location</h2> -->
+				<div id="map" class="google map"></div>
 				<div id="address">
 					<p><span class="glyphicon glyphicon-map-marker"></span> <%= restaurantAddress %></p>
 
@@ -39,15 +38,25 @@
 			</div>
 
 			<div class="col-xs-6 pictures">
-				add more pictures
+				<img src="https://s3-media4.fl.yelpcdn.com/bphoto/ZICJrqwyfajZMKmUfCRoqQ/o.jpg" height="300"/>
 			</div>
-
-
-
 		</div>
 
 		<div class="row comments">
 			<h2>Comments</h2>
+			<form>
+				<fieldset>
+					<div class="form-group">
+						<label for="username">Your name</label>
+						<input type="text" id="username" class="form-control" placeholder="Enter your name">
+					</div>
+					<div class="form-group">
+						<label for="disabledSelect">Your comments</label>
+						<textarea class="form-control" rows="3" placeholder="Enter your comments"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</fieldset>
+			</form>
 		</div>
 
 		<div class="data">
@@ -61,6 +70,7 @@
 	var map;
 	var geocoder;
 	var address = "<%= restaurantAddress %>";
+	var restaurantInfo = "<%= restaurantInfo%>";
 	function initMap() {
 		// Constructor creates a new map - only center and zoom are required.
 		geocoder = new google.maps.Geocoder();
@@ -69,7 +79,6 @@
 		var coord = new google.maps.LatLng(address);
 
 		map = new google.maps.Map(document.getElementById('map'), {
-			// center: {lat: 37.335187, lng: -121.881072},
 			// center: {lat: 37.335187, lng: -121.881072},
 			zoom: 17
 		});
@@ -88,19 +97,31 @@
 			// anchor: new google.maps.Point(0, 32)
 		};
 
-		geocoder.geocode({ 'address': address}, function(results, status) {
+		geocoder.geocode({'address': address}, function(results, status) {
 			if (status == 'OK') {
 				map.setCenter(results[0].geometry.location);
 				var marker = new google.maps.Marker({
 					map: map,
 					position: results[0].geometry.location,
+					animation: google.maps.Animation.DROP,
 					// icon: image
 				});
 			} else {
 				alert('Geocode was not successful for the following reason: ' + status);
 			}
 		});
+
+		marker.addListener('click', toggleBounce);
 	}
+
+	function toggleBounce() {
+		if (marker.getAnimation() !== null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
+
 
 	// marker.setMap(map);
 
