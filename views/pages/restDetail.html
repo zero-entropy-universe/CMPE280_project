@@ -12,8 +12,8 @@
 		padding: 0;
 	}
 	#map {
-		height: 200px;
-		width: 300px;
+		height: 600px;
+		width: 600px;
 	}
 	/*.row {
 	height: 300px;
@@ -28,11 +28,14 @@
 		<div class="row">
 			<div class="col-xs-6">
 				<div  id="map" class=""></div>
-				<h2>Our Location</h2>
-				<div id="address"></div>
-				<phone>
-					<abbr>P:</abbr> <%= restaurantInfo.phone %>
-				</phone>
+				<!-- <h2>Our Location</h2> -->
+				<div id="address">
+					<p><span class="glyphicon glyphicon-map-marker"></span> <%= restaurantAddress %></p>
+
+				</div>
+				<div id="phone">
+					<p><span class="glyphicon glyphicon-phone"></span> <%= restaurantInfo.phone %></p>
+				</div>
 			</div>
 
 			<div class="col-xs-6 pictures">
@@ -53,15 +56,11 @@
 		</div>
 	</div>
 
-	<script>
-	// var address = "<% restaurantAddress %>";
-	// $(".data").append( "<p>address</p>" );
-	// var restaurantAddress = JSON.stringify(restaurantAddress);
-	</script>
 
 	<script>
 	var map;
 	var geocoder;
+	var address = "<%= restaurantAddress %>";
 	function initMap() {
 		// Constructor creates a new map - only center and zoom are required.
 		geocoder = new google.maps.Geocoder();
@@ -71,41 +70,42 @@
 
 		map = new google.maps.Map(document.getElementById('map'), {
 			// center: {lat: 37.335187, lng: -121.881072},
-			center: {lat: 37.335187, lng: -121.881072},
-			// Map Coordinates of Selected Location
-			// Latitude:N 24° 57' 53.5248"
-			// Longitude:E 121° 32' 52.3284"
-			// Latitude:24° 57.89208'
-			// Longitude:121° 32.87214'
-			// Latitude:24.964868°
-			// Longitude:121.547869°
+			// center: {lat: 37.335187, lng: -121.881072},
 			zoom: 17
 		});
 
 		// 傳入 latLng 資訊至 geocoder.geocode
 		// geocoder.geocode({'latLng': coord }, function(results, status) {
+		// change address to latLng
+		var image = {
+			// see setting https://developers.google.com/maps/documentation/javascript/markers?hl=zh-tw
+			url: 'https://www.javatpoint.com/images/javascript/javascript_logo.png',
+			// This marker is 20 pixels wide by 32 pixels high.
+			// size: new google.maps.Size(20, 32),
+			// The origin for this image is (0, 0).
+			// origin: new google.maps.Point(0, 0),
+			// The anchor for this image is the base of the flagpole at (0, 32).
+			// anchor: new google.maps.Point(0, 32)
+		};
+
 		geocoder.geocode({ 'address': address}, function(results, status) {
 			if (status == 'OK') {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
+				map.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location,
+					// icon: image
+				});
+			} else {
+				alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
 	}
 
+	// marker.setMap(map);
 
 	</script>
 
-	<script>
-	// var address = "1 Washington Sq, San Jose, CA 95192";
-	var address = "<%= restaurantAddress %>";
-	// var address = <%- JSON.stringify(restaurantAddress) %>;
-	document.getElementById("address").innerHTML = address;
-	</script>
 
 	<script async defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X4b-bn6IjOnnJxtyAKQlRO8dF0iV00s&v=3&callback=initMap">
