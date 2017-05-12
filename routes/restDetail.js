@@ -7,7 +7,7 @@ module.exports = function (firebase) { // firebase
     var id = req.params.id;
     //  var id =
     // var ref = firebase.database().ref("restaurant"); // -KighKkTqQ9DhIuMGg9f
-    var ref = firebase.database().ref("restaurant").child('-KighKkTqQ9DhIuMGg9f'); // -KighKkTqQ9DhIuMGg9f //.child('-KighKkTqQ9DhIuMGg9f')
+    var ref = firebase.database().ref("restaurant").child(id); // -KighKkTqQ9DhIuMGg9f //.child('-KighKkTqQ9DhIuMGg9f')
     var restaurantOption = {};
     ref.once("value").then(function (snapshot) {
       // console.log('typeof', typeof(snapshot));
