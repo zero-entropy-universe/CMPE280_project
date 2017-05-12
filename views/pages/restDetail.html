@@ -12,7 +12,7 @@
 		padding: 0;
 	}
 	#map {
-		height: 300px;
+		height: 200px;
 		width: 300px;
 	}
 	/*.row {
@@ -26,15 +26,20 @@
 	<% include ../partials/nav %>
 	<div class="container">
 		<div class="row">
-			<div class="store col-6">
+			<div class="col-xs-6">
+				<div  id="map" class=""></div>
 				<h2>Our Location</h2>
 				<div id="address"></div>
 				<phone>
-					<abbr>P:</abbr> +669 241 8429
+					<abbr>P:</abbr> <%= restaurantInfo.phone %>
 				</phone>
 			</div>
 
-			<div  id="map" class="col-6"></div>
+			<div class="col-xs-6 pictures">
+				add more pictures
+			</div>
+
+
 
 		</div>
 
@@ -44,21 +49,28 @@
 
 		<div class="data">
 			<!-- <h2>Comments</h2> -->
-			<%= restaurantAddress %>
+			<!-- <%= restaurantAddress %> -->
 		</div>
 	</div>
 
 	<script>
-		// var address = "<% restaurantAddress %>";
-		// $(".data").append( "<p>address</p>" );
-		// var restaurantAddress = JSON.stringify(restaurantAddress);
+	// var address = "<% restaurantAddress %>";
+	// $(".data").append( "<p>address</p>" );
+	// var restaurantAddress = JSON.stringify(restaurantAddress);
 	</script>
 
 	<script>
 	var map;
+	var geocoder;
 	function initMap() {
 		// Constructor creates a new map - only center and zoom are required.
+		geocoder = new google.maps.Geocoder();
+		// google.maps.LatLng 物件
+		// var coord = new google.maps.LatLng({lat: 37.335187, lng: -121.881072});
+		var coord = new google.maps.LatLng(address);
+
 		map = new google.maps.Map(document.getElementById('map'), {
+			// center: {lat: 37.335187, lng: -121.881072},
 			center: {lat: 37.335187, lng: -121.881072},
 			// Map Coordinates of Selected Location
 			// Latitude:N 24° 57' 53.5248"
@@ -69,11 +81,28 @@
 			// Longitude:121.547869°
 			zoom: 17
 		});
+
+		// 傳入 latLng 資訊至 geocoder.geocode
+		// geocoder.geocode({'latLng': coord }, function(results, status) {
+		geocoder.geocode({ 'address': address}, function(results, status) {
+			if (status == 'OK') {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
 	}
+
+
 	</script>
 
 	<script>
-	var address = "1 Washington Sq, San Jose, CA 95192";
+	// var address = "1 Washington Sq, San Jose, CA 95192";
+	var address = "<%= restaurantAddress %>";
 	// var address = <%- JSON.stringify(restaurantAddress) %>;
 	document.getElementById("address").innerHTML = address;
 	</script>

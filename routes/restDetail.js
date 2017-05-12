@@ -20,7 +20,7 @@ module.exports = function (firebase) { // firebase
       // restaurantOption.push(childSnapshot.key);
       console.log(restaurantOption);
       console.log(typeof restaurantOption, 'ya');
-      res.render("pages/restDetail", {restaurantList : restaurantOption, restaurantAddress: restaurantOption.address});
+      res.render("pages/restDetail", {restaurantInfo : restaurantOption, restaurantAddress: restaurantOption.address});
     });
   });
   /*
