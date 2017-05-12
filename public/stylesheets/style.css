@@ -150,7 +150,34 @@ a {
 }
 
 /* newRes.html */
+.container {
+    position: relative;
+}
+.cover{
+  object-fit: cover;
+  width:100%;
+  height:180px;
+}
+
+.openings{
+  margin:20px;
+  float: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .openings img{
   height: 240px;
-  width: 300px;
+  width: 100%;
+}
+.words{
+  line-height: 1;
+  padding: 10px;
+
+}
+.newName {
+  text-align: left;
+  font-size: 22px;
+}
+.newCategory{
+  font-size: 16px;
+  color:#FFAE33;
 }
