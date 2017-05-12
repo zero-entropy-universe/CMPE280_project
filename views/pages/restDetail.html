@@ -44,10 +44,15 @@
 
 		<div class="data">
 			<!-- <h2>Comments</h2> -->
-			<%= restaurantList[0] %>
+			<%= restaurantAddress %>
 		</div>
 	</div>
 
+	<script>
+		// var address = "<% restaurantAddress %>";
+		// $(".data").append( "<p>address</p>" );
+		// var restaurantAddress = JSON.stringify(restaurantAddress);
+	</script>
 
 	<script>
 	var map;
@@ -69,6 +74,7 @@
 
 	<script>
 	var address = "1 Washington Sq, San Jose, CA 95192";
+	// var address = <%- JSON.stringify(restaurantAddress) %>;
 	document.getElementById("address").innerHTML = address;
 	</script>
 
