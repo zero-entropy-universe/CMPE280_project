@@ -168,6 +168,7 @@ img.cover{
   width: 100%;
   padding:10;
 }
+
 .words {
   font-size: 12px;
 
@@ -179,4 +180,9 @@ img.cover{
   font-size: 12px;
   color:#FFAE33;
 }
+.openings p:hover{
+  font-size: 22px;
+}
+
+
 /* newRes.html end*/

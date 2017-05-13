@@ -7,7 +7,7 @@ download nodejs installer according to your OS
 
 https://nodejs.org/en/download/
 
-Check node is successfully installed, type following code in cmd/terminal 
+Check node is successfully installed, type following code in cmd/terminal
 ```
 node -v
 ```
@@ -15,7 +15,7 @@ node -v
 ### 2. Install npm
 **normally, npm is installed after installing node**
 
-To test whether npm is installed, type `npm -v` in cmd/terminal 
+To test whether npm is installed, type `npm -v` in cmd/terminal
 
 *If installed, skip this step!*
 
@@ -73,6 +73,10 @@ Open any browser and type in `localhost:3000`
 ## Development Guide
 
 http://www.jianshu.com/p/52cd934ead29
+
+Database:
+    Region: anhui, zhejiang, sichuan, cantonese, Shandong, fujian,jiangsu, shanxi,hunan
+    Category: hop pot, noodle, dim sum, porridge, bbq, seafood
 
 
 
