@@ -166,7 +166,6 @@ a {
 }
 .openings img{
   height: 240px;
-<<<<<<< Updated upstream
   width: 100%;
 }
 .words{
@@ -182,9 +181,7 @@ a {
   font-size: 16px;
   color:#FFAE33;
 }
-=======
-  width: 300px;
-}
+
 .navbar {
   background-color: transparent;
   background: transparent;
