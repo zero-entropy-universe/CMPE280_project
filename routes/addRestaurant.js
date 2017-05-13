@@ -6,11 +6,17 @@ module.exports = function (firebase) {
   	var ref = firebase.database().ref("category/");
   	var categoryOption = [];
   	ref.once("value").then(function (snapshot) {
-  		snapshot.forEach(function (childSnapshot) {
-  			categoryOption.push(childSnapshot.key);
+      console.log(snapshot.val());
+  		Object.keys(snapshot.val()).forEach(function (key, index) {
+  			categoryOption.push(snapshot.val()[key].name);
   		});
   		console.log(categoryOption);
-  		res.render("pages/addRestaurant", {categoryList : categoryOption});
+      var regionOption = [
+        "Sichuan",
+        "Anhui",
+        "Hunan"
+      ];
+  		res.render("pages/addRestaurant", {categoryList : categoryOption, regionList: regionOption});
   	});
   });
 
@@ -83,7 +89,7 @@ function createRestaurant(firebase, data) {
 
   newRestaurantRef.set({
   	name : data.name,
-  	category : tempCategory,
+  	category : data.category,
   	phone: data.phone,
   	address: data.address,
   	description: data.description,
