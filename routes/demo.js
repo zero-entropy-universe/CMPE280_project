@@ -22,12 +22,12 @@ module.exports = function (firebase) {
       restaurant_id : temp,
       commentList : [
         {
-          content: "hello",
+          content: "hello world",
           rating: 4,
           userId: tempUser1
         },
         {
-          content: "hello2",
+          content: "hello2 world2",
           rating: 5,
           userId: tempUser2
         }
@@ -41,6 +41,22 @@ module.exports = function (firebase) {
       return res.json({done: false});
     });
   });
+  router.get("/allComments", function (req, res) {
+    console.log("in all comments")
+    firebase.database().ref("/comments/").once('value').then(function(snapshot) {
+      var temp = snapshot.val();
+      //console.log(temp);
+      var arr = [];
+      Object.keys(temp).forEach(function (key, index) {
+         console.log(temp[key].commentList);
+        arr[index] = {};
+        arr[index].id = key;
+        arr[index].restaurantId = temp[key].restaurant_id;
+        arr[index].commentList = temp[key].commentList;
+      });
+      console.log(arr);
+    });
+  })
 
   router.get("/comments/:id", function (req, res) {
     var url = "/comments/" + req.params.id;
@@ -49,13 +65,7 @@ module.exports = function (firebase) {
     });
   });
 
-  router.get("/comments/all", function (req, res) {
-    firebase.database().ref("/comments").once('value').then(function(snapshot) {
-      var allComments = {}
-      allComments = napshot.val();
-      console.log(allComments);
-    });
-  })
+
 
   router.post("/", function (req, res) {
 

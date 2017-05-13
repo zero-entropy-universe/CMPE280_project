@@ -59,7 +59,6 @@ app.get('/restDetail/:id', restDetail);
 app.use('/restDetail',restDetail);
 app.use('/searchResult', searchResult);
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
