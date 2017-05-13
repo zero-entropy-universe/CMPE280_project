@@ -42,12 +42,8 @@ app.set('views', path.join(__dirname, 'views/')); // set view path
 
 // import routers
 var index = require('./routes/index')();
-<<<<<<< Updated upstream
-var demo = require('./routes/demo')();
-=======
 var demo = require('./routes/demo')(firebase);
 var test = require('./routes/test')(firebase);
->>>>>>> Stashed changes
 var addRestaurant = require('./routes/addRestaurant')(firebase);
 var newRes =require('./routes/newRes')(firebase);
 var restDetail = require('./routes/restDetail')(firebase);
