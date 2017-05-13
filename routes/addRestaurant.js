@@ -105,7 +105,7 @@ function createRestaurant(firebase, data) {
     photos: [],
     openningDate: date,
     region: data.region,
-    newOpen: true,
+    newOpen: false,
     image: "some url"
   });
 
