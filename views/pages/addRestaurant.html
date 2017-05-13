@@ -35,8 +35,8 @@
 											<div class="form-group">
 												<label>Region</label>
 												<select class="form-control border-input" id="regionSelector">
-													<% for (var i = 0; i < categoryList.length; i++) { %>
-														<option><%= categoryList[i] %></option>
+													<% for (var i = 0; i < regionList.length; i++) { %>
+														<option><%= regionList[i] %></option>
 													<% } %>
 												</select>
 											</div>
@@ -216,6 +216,7 @@
 		    	console.log('click');
 		    	var name = $("#idName").val();
 		    	var category = $("#categorySelector option:selected").val();
+					var region = $("#regionSelector option:selected").val();
 		    	var phone = $("#idPhone").val();
 		    	var address = $("#idAddress").val();
 		    	var city = $("#idCity").val();
@@ -362,6 +363,7 @@
 		    	var data = {
 		    		name : name,
 		    		category : category,
+						region: region,
 		    		phone: phone,
 		    		address: address + ", " + city + ", " + state + zip,
 		    		description: description,
