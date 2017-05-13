@@ -42,7 +42,7 @@ app.set('views', path.join(__dirname, 'views/')); // set view path
 
 // import routers
 var index = require('./routes/index')();
-var demo = require('./routes/demo')();
+var demo = require('./routes/demo')(firebase);
 var addRestaurant = require('./routes/addRestaurant')(firebase);
 var newRes =require('./routes/newRes')(firebase);
 var restDetail = require('./routes/restDetail')(firebase);
@@ -53,10 +53,11 @@ app.use('/', index);
 app.use('/demo', demo);
 app.use('/addRestaurant', addRestaurant);
 app.use('/newRes',newRes);
+// app.get('/restDetail/:id', restDetail);
+app.use('/restDetail', restDetail);
 app.get('/restDetail/:id', restDetail);
 app.use('/restDetail',restDetail);
 app.use('/searchResult', searchResult);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

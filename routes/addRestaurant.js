@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 module.exports = function (firebase) {
-  router.get('/', function(req, res) { 	
+  router.get('/', function(req, res) {
   	var ref = firebase.database().ref("category/");
   	var categoryOption = [];
   	ref.once("value").then(function (snapshot) {
@@ -74,6 +74,13 @@ function createRestaurant(firebase, data) {
 
   console.log(monday);
 
+  var currentDate = new Date();
+  var year = currentDate.getFullYear();
+  var month = currentDate.getUTCMonth() + 1;
+  var day = currentDate.getUTCDate() - 1;
+  var date = month + "/" + day + "/" + year;
+  console.log(year + "," + month +  "," + day);
+
   newRestaurantRef.set({
   	name : data.name,
   	category : tempCategory,
@@ -88,7 +95,10 @@ function createRestaurant(firebase, data) {
   		Friday: friday,
   		Saturday: saturday,
   		Sunday: sunday
-  	}
+  	},
+    photos: [],
+    openningDate: date,
+    region: data.region
   });
 
 }

@@ -1,76 +1,137 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<% include ../partials/head %>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
-    <style>
-    html,
-    body {
-      font-family: Arial, sans-serif;
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-    #map {
-    height: 300px;
-    width: 300px;
-    }
-    /*.row {
-      height: 300px;
-      margin-top: 100px;
-    }*/
+<head>
+	<% include ../partials/head %>
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
+	<style>
+	html,
+	body {
+		font-family: Arial, sans-serif;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	#map {
+		height: 300px;
+		width: 500px;
+	}
+	/*.row {
+	height: 300px;
+	margin-top: 100px;
+	}*/
 
-    </style>
-	</head>
-	<body>
-		<% include ../partials/nav %>
-    <div class="container">
-      <div class="row">
-        <div class="store col-6">
-          <h2>Our Location</h2>
-          <div id="address"></div>
-          <phone>
-            <abbr>P:</abbr> +669 241 8429
-          </phone>
-        </div>
+	</style>
+</head>
+<body>
+	<% include ../partials/nav %>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6">
+				<div id="map" class="google map"></div>
+				<div id="address">
+					<p><span class="glyphicon glyphicon-map-marker"></span> <%= restaurantAddress %></p>
 
-        <div  id="map" class="col-6"></div>
+				</div>
+				<div id="phone">
+					<p><span class="glyphicon glyphicon-phone"></span> <%= restaurantInfo.phone %></p>
+				</div>
+			</div>
 
-      </div>
+			<div class="col-xs-6 pictures">
+				<img src="https://s3-media4.fl.yelpcdn.com/bphoto/ZICJrqwyfajZMKmUfCRoqQ/o.jpg" height="300"/>
+			</div>
+		</div>
 
-      <div class="row comments">
-        <h2>Comments</h2>
-      </div>
-    </div>
+		<div class="row comments">
+			<h2>Comments</h2>
+			<form>
+				<fieldset>
+					<div class="form-group">
+						<label for="username">Your name</label>
+						<input type="text" id="username" class="form-control" placeholder="Enter your name">
+					</div>
+					<div class="form-group">
+						<label for="disabledSelect">Your comments</label>
+						<textarea class="form-control" rows="3" placeholder="Enter your comments"></textarea>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</fieldset>
+			</form>
+		</div>
+
+		<div class="data">
+			<!-- <h2>Comments</h2> -->
+			<!-- <%= restaurantAddress %> -->
+		</div>
+	</div>
 
 
-    <script>
-    var map;
-    function initMap() {
-      // Constructor creates a new map - only center and zoom are required.
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 37.335187, lng: -121.881072},
-        // Map Coordinates of Selected Location
-        // Latitude:N 24° 57' 53.5248"
-        // Longitude:E 121° 32' 52.3284"
-        // Latitude:24° 57.89208'
-        // Longitude:121° 32.87214'
-        // Latitude:24.964868°
-        // Longitude:121.547869°
-        zoom: 17
-      });
-    }
-    </script>
+	<script>
+	var map;
+	var geocoder;
+	var address = "<%= restaurantAddress %>";
+	var restaurantInfo = "<%= restaurantInfo%>";
+	function initMap() {
+		// Constructor creates a new map - only center and zoom are required.
+		geocoder = new google.maps.Geocoder();
+		// google.maps.LatLng 物件
+		// var coord = new google.maps.LatLng({lat: 37.335187, lng: -121.881072});
+		var coord = new google.maps.LatLng(address);
 
-    <script>
-    var address = "1 Washington Sq, San Jose, CA 95192";
-    document.getElementById("address").innerHTML = address;
-    </script>
+		map = new google.maps.Map(document.getElementById('map'), {
+			// center: {lat: 37.335187, lng: -121.881072},
+			zoom: 17
+		});
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X4b-bn6IjOnnJxtyAKQlRO8dF0iV00s&v=3&callback=initMap">
-    </script>
+		// 傳入 latLng 資訊至 geocoder.geocode
+		// geocoder.geocode({'latLng': coord }, function(results, status) {
+		// change address to latLng
+		var image = {
+			// see setting https://developers.google.com/maps/documentation/javascript/markers?hl=zh-tw
+			url: 'https://www.javatpoint.com/images/javascript/javascript_logo.png',
+			// This marker is 20 pixels wide by 32 pixels high.
+			// size: new google.maps.Size(20, 32),
+			// The origin for this image is (0, 0).
+			// origin: new google.maps.Point(0, 0),
+			// The anchor for this image is the base of the flagpole at (0, 32).
+			// anchor: new google.maps.Point(0, 32)
+		};
 
-		<% include ../partials/footer %>
-	</body>
+		geocoder.geocode({'address': address}, function(results, status) {
+			if (status == 'OK') {
+				map.setCenter(results[0].geometry.location);
+				var marker = new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location,
+					animation: google.maps.Animation.DROP,
+					// icon: image
+				});
+			} else {
+				alert('Geocode was not successful for the following reason: ' + status);
+			}
+		});
+
+		marker.addListener('click', toggleBounce);
+	}
+
+	function toggleBounce() {
+		if (marker.getAnimation() !== null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	}
+
+
+	// marker.setMap(map);
+
+	</script>
+
+
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X4b-bn6IjOnnJxtyAKQlRO8dF0iV00s&v=3&callback=initMap">
+	</script>
+
+
+</body>
 </html>
