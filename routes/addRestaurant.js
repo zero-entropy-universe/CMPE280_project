@@ -104,7 +104,9 @@ function createRestaurant(firebase, data) {
   	},
     photos: [],
     openningDate: date,
-    region: data.region
+    region: data.region,
+    newOpen: true,
+    image: "some url"
   });
 
 }
