@@ -51,8 +51,9 @@ module.exports = function (firebase) {
          console.log(temp[key].commentList);
         arr[index] = {};
         arr[index].id = key;
-        arr[index].restaurantId = temp[key].restaurant_id;
-        arr[index].commentList = temp[key].commentList;
+        arr[index].name = temp[key].name;
+        arr[index].address = temp[key].address;
+        console.log("category is :",temp[key].category);
       });
       console.log(arr);
     });
