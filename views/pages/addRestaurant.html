@@ -14,14 +14,14 @@
 		          </div>
 		          <div class="content">
 		            <!-- <form> -->
-		              <div class="row"> 
+		              <div class="row">
 		                <div class="col-md-5">
 		                  <div class="form-group">
 	                      <label>Name</label>
 	                      <input type="text" class="form-control border-input" id="idName" required="true" placeholder="Restaurant Name">
 		                  </div>
 		                </div>
-		                <div class="col-md-3">
+		                <div class="col-md-2">
 		                  <div class="form-group">
 	                      <label>Category</label>
 	                      <select class="form-control border-input" id="categorySelector">
@@ -31,7 +31,17 @@
 	                      </select>
 		                  </div>
 		                </div>
-		              	<div class="col-md-4">
+										<div class="col-md-2">
+											<div class="form-group">
+												<label>Region</label>
+												<select class="form-control border-input" id="regionSelector">
+													<% for (var i = 0; i < categoryList.length; i++) { %>
+														<option><%= categoryList[i] %></option>
+													<% } %>
+												</select>
+											</div>
+										</div>
+		              	<div class="col-md-3">
 		                  <div class="form-group">
 		                    <label>Phone</label>
 		                    <input type="text" class="form-control border-input" id="idPhone" required="true" placeholder="Phone">
@@ -355,19 +365,19 @@
 		    		phone: phone,
 		    		address: address + ", " + city + ", " + state + zip,
 		    		description: description,
-		    		monday_open : openMon, 
+		    		monday_open : openMon,
 		    		monday_close : closeMon,
-		    		tuesday_open : openTue, 
+		    		tuesday_open : openTue,
 		    		tuesday_close : closeTue,
-		    		wednesday_open : openWed, 
+		    		wednesday_open : openWed,
 		    		wednesday_close : closeWed,
-		    		thursday_open : openThu, 
+		    		thursday_open : openThu,
 		    		thursday_close : closeThu,
-		    		friday_open : openFri, 
+		    		friday_open : openFri,
 		    		friday_close : closeFri,
-		    		saturday_open : openSat, 
+		    		saturday_open : openSat,
 		    		saturday_close : closeSat,
-		    		sunday_open : openSun, 
+		    		sunday_open : openSun,
 		    		sunday_close : closeSun
 		    	}
 
@@ -379,7 +389,7 @@
 		    		} else {
 		    			showNotification("top", "center", "warning", "Sorry, please try again");
 		    		}
-		    		
+
 		    	})
 		    });
 
@@ -398,7 +408,7 @@
 
 		    // show notification
 		    function showNotification(from, align, type, message){
-					
+
 					$.notify({
 				    	icon: "ti-gift",
 				    	message: message
