@@ -18,13 +18,35 @@
   </head>
   <body>
     <% include ../partials/nav %>
-    <div>
-      <video autoplay loop id="bgvid">
-        <source src="/video/background.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+
+    <video autoplay loop id="bgvid">
+      <source src="/video/background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="container">
+      <div class="row">
+        Best Restaurant
+
+      </div>
+      <div class="row">
+        <div class="ui icon input">
+          <input type="text" placeholder="Search...">
+          <i class="inverted circular search link icon"></i>
+        </div>
+      </div>
     </div>
     <br>
+    <script>
+    export default {
+      data() {
+        return {
+          input: ''
+        }
+      }
+    }
+    </script>
+
     <% include ../partials/footer%>
   </body>
+
 </html>
