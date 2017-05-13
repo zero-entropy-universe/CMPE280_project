@@ -19,17 +19,17 @@ module.exports = function (firebase) {
     var tempUser2 = {};
     tempUser2["user_id_2"] = true;
     newCommentRef.set({
-      restaurant_id : temp,
+      restaurant_id : "some_rest_id",
       commentList : [
         {
           content: "hello world",
           rating: 4,
-          userId: tempUser1
+          userId: "user_id_1"
         },
         {
           content: "hello2 world2",
           rating: 5,
-          userId: tempUser2
+          userId: "user_id_2"
         }
       ]
     })
@@ -45,7 +45,7 @@ module.exports = function (firebase) {
     console.log("in all comments")
     firebase.database().ref("/comments/").once('value').then(function(snapshot) {
       var temp = snapshot.val();
-      //console.log(temp);
+      console.log(Object.keys(temp));
       var arr = [];
       Object.keys(temp).forEach(function (key, index) {
          console.log(temp[key].commentList);
