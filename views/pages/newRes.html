@@ -10,17 +10,16 @@
 
     <div class="container">
         <div>
-            <img class="cover" src="../images/sf.jpg">
+            <img class="cover animated fadeInDown" src="../images/sf.jpg">
         </div>
         <div class="row">
-
-            <h3 class="text-center">Grand New Openings</h3>
+            <h3 id="ownsub"class="animated swing text-center">Grand New Openings</h3>
         </div>
         <div class="row">
             <% for (var i=0;i<temp.length;i++){%>
                 <% if(temp[i].newOpen==true){%>
                     <div class="col-xs-12 col-lg-4 ">
-                        <div class="openings panel">
+                        <div class="openings panel animated slideInUp">
                             <img src=<%= temp[i].image%>  class="panel-body">
                             <div class="panel-footer">
                                 <span class="newName"><%= temp[i].name%></span><br>
