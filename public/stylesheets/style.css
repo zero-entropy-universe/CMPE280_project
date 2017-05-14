@@ -245,4 +245,10 @@ img.cover{
 .navbar-fixed-bottom {
   margin-bottom: 20px;
 }
-
+/*logo*/
+#logo{
+  padding-top: 16px;
+  width: 140px;
+  height: 80px;
+  background-color:transparent;
+}
