@@ -203,6 +203,10 @@ img.cover{
   background-color: #F0F0F5;
 }
 /*searchResult.html*/
+#restaurantNum{
+  margin-left: 80px;
+  margin-right: 80px;
+}
 #restaurantNum:hover {
   transform: scale(1.05);
   transition: all 0.5s linear;
@@ -213,7 +217,6 @@ img.cover{
 /* index.html */
 .myIndexContainer {
   margin-top: 200px;
-  margin-bottom: 300px;
 }
 .myIndexContainer .row span {
   text-align: center;
