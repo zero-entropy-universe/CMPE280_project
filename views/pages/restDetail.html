@@ -14,16 +14,23 @@
 		height: 300px;
 		width: 500px;
 	}
-	/*.row {
-	height: 300px;
-	margin-top: 100px;
-	}*/
+	.row {
+	/*height: 10px;*/
+	margin: 10px 0 20px 0;
+	}
 
 	</style>
 </head>
 <body>
 	<% include ../partials/nav %>
 	<div class="container">
+		<div>
+				<img class="cover animated fadeInDown" src="../images/sf.jpg">
+		</div>
+		<div class="row title">
+				<h1 id="ownsub"class="animated shake text-center">Restaurant details</h3>
+		</div>
+
 		<div class="row">
 			<div class="col-xs-6">
 				<div id="map" class="google map"></div>
@@ -66,8 +73,9 @@
 						<% }%>
 					</tbody>
 				</table>
+			</div>
 				<!-- </div> -->
-
+			<div class="row form">
 				<form>
 					<fieldset>
 						<div class="form-group">
