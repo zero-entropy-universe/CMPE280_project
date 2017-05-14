@@ -9,57 +9,51 @@
       <div class="container">
         <h2> Search Result </h2>
         <%for (var i = 0; i < temp.length; i++){%>
-        <div class="row"  style="width: 800px;">
-          <div class="col-md-4">
-            <img src="../images/hotPot.jpg" style="width:100%; border-radius: 20%;"/>
+          <div class="panel" id="restaurantNum" style=" background-color：red;box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 16px 0 rgba(0, 0, 0, 0.19); border-radius: 20px;">
+            <div class="panel-body" style="border-radius: 20px;">
+              <div class="row" style="width: 800px;">
+                <div class="col-md-4">
+                  <img src="../images/hotPot.jpg" style="width:100%; border-radius: 20px;"/>
+                </div>
+                <div class="col-md-8">
+                  <div class="row col-md-offset-3" style="height:40%;margin-top:-5px">
+                    <h2 class="restaurantName"><a href="./restDetail/-KighKkTqQ9DhIuMGg9f"><%=temp[i].name%></a></h2>
+                  </div>
+                  <div class="row col-md-offset-3" style="height:30%;">
+                  </br>
+                    <a class="ui tag label">New</a>
+                    <a class="ui red tag label">Upcoming</a>
+                    <a class="ui teal tag label">Featured</a>
+                  </br>
+                  </div>
+                  <div class="row col-md-offset-3" style="height:30%;">
+                  </br>
+                    <p id="restaurantAdd">Restaurant Address</p>
+                  </br>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-8">
-            <div class="row col-md-offset-3" style="height:40%;margin-top:-20px">
-              <h2><a href="./restDetail/-KighKkTqQ9DhIuMGg9f"><%=temp[i].name%></a></h2>
-            </div>
-            <div class="row col-md-offset-3" style="height:30%;">
-            </br>
-
-              <a class="ui tag label">New</a>
-              <a class="ui red tag label">Upcoming</a>
-              <a class="ui teal tag label">Featured</a>
-            </br>
-            </div>
-            <div class="row col-md-offset-3" style="height:30%;">
-            </br>
-              <p>Restaurant Address</p>
-            </br>
-            </div>
-          </div>
-        </div>
-        <hr />
         <%}%>
       </div>
-
-
-
-              <!-- <%for(var i = 0; i < temp.length;i++){%> -->
-
-                <!-- <div class="item">
-                  <div class="image">
-                    <img src="../images/hotPot.jpg">
-                  </div>
-                  <div class="content">
-                    <a class="header"><%=temp[i].name%></a>
-                   <div class="meta">
-                     <span><%=temp[i].category%></span>
-                   </div>
-                   <div class="description">
-                     <p><%=temp[i].address%></p>
-                   </div>
-                   <div class="extra">
-                     Additional Details
-                   </div>
-                 </div>
-               </div>
-               </br>
-             <!-- <%}%> -->
-
    <% include ../partials/footer %>
+   <script>
+
+
+    $(document).ready(function () {
+      $(".restaurantName").prepend("<i class='heart icon'></i>");
+      $(".restaurantName").append("<i class='heart icon'></i>");
+      $("i").hide();
+
+      $("h2").hover(function () {
+        $(this).children("i").show();
+        $(this).children("i").addClass(" animated infinite swing");
+      }, function () {
+        $(this).children("i").removeClass(" animated infinite swing");
+        $(this).children("i").hide();
+      });
+    })
+   </script>
    </body>
 </html>

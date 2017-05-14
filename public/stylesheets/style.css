@@ -195,3 +195,15 @@ img.cover{
 }
 
 .navbar li { color: #000 }
+
+.panel-body {
+  background-color: #F0F0F5;
+}
+
+#restaurantNum:hover {
+  transform: scale(1.05);
+  transition: all 0.5s linear;
+}
+.restaurantName i {
+  color: #FF337A;
+}
