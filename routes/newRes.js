@@ -13,9 +13,8 @@ module.exports = function (firebase) {
       Object.keys(temp).forEach(function (key, index) {
         console.log(temp[key].name);
         arr[index] = {};
+        arr[index]=temp[key];
         arr[index].id = key;
-        arr[index].name = temp[key].name;
-        arr[index].address = temp[key].address;
         console.log("category is :",temp[key].category);
       });
       console.log(arr);

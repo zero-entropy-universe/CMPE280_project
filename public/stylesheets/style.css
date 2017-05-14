@@ -206,4 +206,6 @@ img.cover{
 }
 .restaurantName i {
   color: #FF337A;
+.myIndexContainer {
+  margin-top: 300px;
 }
