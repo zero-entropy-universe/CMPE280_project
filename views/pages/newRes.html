@@ -17,6 +17,7 @@
         </div>
         <div class="row">
             <% for (var i=0;i<temp.length;i++){%>
+
                 <% if(temp[i].newOpen==true){%>
                     <div class="col-xs-12 col-lg-4 ">
                         <div class="openings panel animated slideInUp">
@@ -26,14 +27,8 @@
                                 <span class="newCategory"><%= temp[i].category%></span><br>
                                 <span class="words"><%=temp[i].address%></span><br>
                             </div>
-                <div class="col-xs-12 col-lg-4 ">
-                    <div class="panel openings">
-                        <img src="../images/rice.jpg"  class="panel-body">
-                        <div class="panel-footer">
-                            <span class="newName"><%= temp[i].name%></span>
-                            <span class="newCategory"><%= temp[i].category%></span><br>
-                            <span class="words"><%=temp[i].address%></span><br>
-                            <span class="words">Opened days ago</span>
+
+
                         </div>
                     </div>
                 <% }%>
