@@ -3,11 +3,13 @@ var router = express.Router();
 
 module.exports = function (firebase) { // firebase
   router.get('/:id', function(req, res) {
-    console.log("restaurant details");
+    // console.log("restaurant details");
     var id = req.params.id;
     //  var id =
     // var ref = firebase.database().ref("restaurant"); // -KighKkTqQ9DhIuMGg9f
     var ref = firebase.database().ref("restaurant").child(id); // -KighKkTqQ9DhIuMGg9f //.child('-KighKkTqQ9DhIuMGg9f')
+    var refComments = firebase.database().ref("comments");
+    // console.log(refComments);
     var restaurantOption = {};
     ref.once("value").then(function (snapshot) {
       // console.log('typeof', typeof(snapshot));
@@ -18,9 +20,30 @@ module.exports = function (firebase) { // firebase
       restaurantOption = snapshot.val();
       // snapshot.forEach(function (childSnapshot) {
       // restaurantOption.push(childSnapshot.key);
-      console.log(restaurantOption);
-      console.log(typeof restaurantOption, 'ya');
-      res.render("pages/restDetail", {restaurantInfo : restaurantOption, restaurantAddress: restaurantOption.address});
+      // console.log(restaurantOption);
+      // console.log(typeof restaurantOption, 'ya');
+      refComments.once("value").then(function (snapshotComments) {
+        restaurantComments = snapshotComments.val();
+        var restaurantCommentOut = [];
+        // console.log(restaurantComments);
+        for (var i in restaurantComments) {
+          if (id === restaurantComments[i].restaurant_id) {
+            console.log(restaurantComments[i].commentList);
+            // for (var j in restaurantComments[i].commentList) {
+              // restaurantCommentOut.push(JSON.stringify(restaurantComments[i].commentList[j]));
+            // restaurantCommentOut.push(JSON.stringify(restaurantComments[i].commentList));
+            // restaurantCommentOut.push((restaurantComments[i].commentList));
+            restaurantCommentOut = restaurantComments[i].commentList.slice();
+
+
+          }
+        }
+        console.log(restaurantCommentOut);
+        // for (var i=0; i<restaurantComments.length; i++) {
+          // if (restaurantComments[i])
+        // }
+        res.render("pages/restDetail", {restaurantInfo : restaurantOption, restaurantAddress: restaurantOption.address, restaurantCommentOut: restaurantCommentOut});
+      });
     });
   });
   /*
