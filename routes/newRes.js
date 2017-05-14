@@ -16,6 +16,9 @@ module.exports = function (firebase) {
         arr[index].id = key;
         arr[index].name = temp[key].name;
         arr[index].address = temp[key].address;
+        arr[index].category=temp[key].category;
+        arr[index].newOpen=temp[key].newOpen;
+        arr[index].image=temp[key].image;
         console.log("category is :",temp[key].category);
       });
       console.log(arr);
