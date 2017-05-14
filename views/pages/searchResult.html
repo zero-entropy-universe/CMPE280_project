@@ -13,7 +13,7 @@
             <div class="panel-body" style="border-radius: 20px;">
               <div class="row" style="width: 800px;">
                 <div class="col-md-4">
-                  <img src="../images/hotPot.jpg" style="width:100%; border-radius: 20px;"/>
+                  <img src=<%= temp[i].image%> style="width:100%; border-radius: 20px;"/>
                 </div>
                 <div class="col-md-8">
                   <div class="row col-md-offset-3" style="height:40%;margin-top:-5px">
@@ -28,7 +28,7 @@
                   </div>
                   <div class="row col-md-offset-3" style="height:30%;">
                   </br>
-                    <p id="restaurantAdd">Restaurant Address</p>
+                    <p id="restaurantAdd"><%=temp[i].address%></p>
                   </br>
                   </div>
                 </div>

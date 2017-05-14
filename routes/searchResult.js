@@ -1,13 +1,23 @@
 var express = require('express');
 var router = express.Router();
-
-module.exports = function () {
-   router.get('/', function(req, res) {
-       console.log("search result page");
-        var list=[{name: "Chili Boy",category: "hotPot",region: "Sichuan",address:"S 11th Ave, San Jose"},
-        {name: "Boiling Point",category: "hotPot",region: "Fujian",address:"20956 Homestead Rd, Cupertino"}]
-       res.render('pages/searchResult',{temp:list}); // normally, we ignore the extension name of example.html file
-   });
-
+module.exports = function (firebase) {
+  router.get('/', function(req, res) {
+    console.log("in all restaurant");
+    firebase.database().ref("/restaurant/").once('value').then(function(snapshot) {
+      var temp = snapshot.val();
+      console.log(temp);
+      var arr = [];
+      Object.keys(temp).forEach(function (key, index) {
+        console.log(temp[key].name);
+        arr[index] = {};
+        arr[index]=temp[key];
+        arr[index].id = key;
+        console.log("category is :",temp[key].category);
+      });
+      console.log(arr);
+      console.log("search result page");
+      res.render('pages/searchResult',{temp:arr});
+    });
+  });
    return router;
 };
