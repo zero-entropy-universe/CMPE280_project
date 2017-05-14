@@ -209,9 +209,16 @@ img.cover{
 }
 .restaurantName i {
   color: #FF337A;
-.myIndexContainer {
-  margin-top: 300px;
 }
+/* index.html */
+.myIndexContainer {
+  margin-top: 200px;
+  margin-bottom: 300px;
+}
+.myIndexContainer .row span {
+  text-align: center;
+}
+/* index.html end*/
 
 @keyframes myheartanimation {
   0% {
@@ -235,3 +242,4 @@ img.cover{
 .navbar-fixed-bottom {
   margin-bottom: 20px;
 }
+
