@@ -39,7 +39,8 @@
 			</div>
 
 			<div class="col-xs-6 pictures">
-				<img src="https://s3-media4.fl.yelpcdn.com/bphoto/ZICJrqwyfajZMKmUfCRoqQ/o.jpg" height="300"/>
+				<!-- <img src="https://s3-media4.fl.yelpcdn.com/bphoto/ZICJrqwyfajZMKmUfCRoqQ/o.jpg" height="300"/> -->
+				<img src=<%= restaurantInfo.image%>  class="panel-body" height="300">
 			</div>
 		</div>
 
@@ -47,12 +48,7 @@
 			<h2>Comments</h2>
 			<!-- <div id = "onecomment"></div> -->
 
-			<ul>
-			<% for(var i in restaurantComments) {%>
-			   <!-- <li><%= restaurantComments[i].content %></li> -->
-			   <li><%= restaurantComments[i].content %></li>
-			<% } %>
-			</ul>
+
 
 
 
@@ -94,8 +90,8 @@
 	var address = "<%= restaurantAddress %>";
 	var restaurantInfo = "<%= restaurantInfo%>";
 	// var restaurantComments = "<%= restaurantCommentOut%>";
-	var restaurantComments = <%-JSON.stringify(restaurantCommentOut)%>;
-	console.log(restaurantComments);
+	// var restaurantComments = <%-JSON.stringify(restaurantCommentOut)%>;
+	// console.log(restaurantComments);
 	// document.getElementById("onecomment").innerHTML =
 	// `
 	// <table class="table">

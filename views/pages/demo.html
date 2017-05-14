@@ -6,163 +6,33 @@
 	<body>
 		<% include ../partials/nav %>
 		<div class="container">
-			<div class="row">
-		    <p>Hello Wolrd</p>
-		    <div class="panel panel-default">
-				  <div class="panel-heading">Panel Title</div>
-				  <div class="panel-body">
-				    <button class="btn btn-primary">Hello</button>
-			    	<button class="btn btn-success">Success</button>
-			    	<button class="btn btn-info">Info</button>
-			    	<button class="btn btn-warning">Warning</button>
-			    	<button class="btn btn-danger">Danger</button>
-			    	<button class="btn btn-neutral">Simple</button>
+			<div class="ui rating" data-rating="3" data-max-rating="5"></div>
+			<div>
+				<div class="ui form">
+					<div class="field">
+				    <label>Short Text</label>
+				    <textarea rows="2" id="comment"></textarea>
 				  </div>
 				</div>
+				<button class="btn btn-primary" id="btnSubmit">submit</button>
 			</div>
-			<div class="row">
-				<!-- dropdown button -->
-		    <div class="dropdown"> 
-		      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-		          Regular
-	          <b class="caret"></b>
-		      </a>
-		      <ul class="dropdown-menu">
-		        <li><a href="#paper">Action</a></li>
-		        <li><a href="#paper">Another action</a></li>
-		        <li><a href="#paper">Something else here</a></li>
-		        <li class="divider"></li>
-		        <li><a href="#paper">Separated link</a></li>
-		        <li class="divider"></li>
-		        <li><a href="#paper">One more separated link</a></li>
-		      </ul>
-		    </div> <!-- end dropdown button -->
-			</div>
-			<div class="row">
-				<!-- table -->
-				<div class="card">
-				  <div class="header">
-			      <h4 class="title">Striped Table</h4>
-			      <p class="category">Here is a subtitle for this table</p>
-				  </div>
-				  <div class="content table-responsive table-full-width">
-			      <table class="table table-striped">
-		          <thead>
-	              <th>ID</th>
-		          	<th>Name</th>
-		          	<th>Salary</th>
-		          	<th>Country</th>
-		          	<th>City</th>
-		          </thead>
-		          <tbody>
-	              <tr>
-	              	<td>1</td>
-	              	<td>Dakota Rice</td>
-	              	<td>$36,738</td>
-	              	<td>Niger</td>
-	              	<td>Oud-Turnhout</td>
-	              </tr>
-	              <tr>
-	              	<td>2</td>
-	              	<td>Minerva Hooper</td>
-	              	<td>$23,789</td>
-	              	<td>Curaçao</td>
-	              	<td>Sinaai-Waas</td>
-	              </tr>
-	              <tr>
-	              	<td>3</td>
-	              	<td>Sage Rodriguez</td>
-	              	<td>$56,142</td>
-	              	<td>Netherlands</td>
-	              	<td>Baileux</td>
-	              </tr>
-	              <tr>
-	              	<td>4</td>
-	              	<td>Philip Chaney</td>
-	              	<td>$38,735</td>
-	              	<td>Korea, South</td>
-	              	<td>Overland Park</td>
-	              </tr>
-	              <tr>
-	              	<td>5</td>
-	              	<td>Doris Greene</td>
-	              	<td>$63,542</td>
-	              	<td>Malawi</td>
-	              	<td>Feldkirchen in Kärnten</td>
-	              </tr>
-	              <tr>
-	              	<td>6</td>
-	              	<td>Mason Porter</td>
-	              	<td>$78,615</td>
-	              	<td>Chile</td>
-	              	<td>Gloucester</td>
-	              </tr>
-		          </tbody>
-			      </table>
-				  </div>
-				</div> <!-- end table -->
-			</div> <!-- end row -->
-			<div class="card">
-			  <div class="header">
-			    <h4 class="title">Unordered List</h4>
-			  </div>
-			  <div class="content">
-			    <ul class="list-unstyled team-members">
-			      <li>
-			        <div class="row">
-			          <div class="col-xs-3">
-			            <div class="avatar">
-			              <img src="../images/default-face.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-			            </div>
-			          </div>
-			          <div class="col-xs-6">
-			            <span>DJ Khaled</span>
-			            <br />
-			            <span class="text-muted"><small>Offline</small></span>
-			          </div>
-			          <div class="col-xs-3 text-right">
-			            <btn class="btn btn-sm btn-success btn-icon">Detail</btn>
-			          </div>
-			        </div> <!-- end row -->
-			      </li>
-			      <li>
-			        <div class="row">
-			          <div class="col-xs-3">
-			            <div class="avatar">
-			              <img src="../images/default-face.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-			            </div>
-			          </div>
-			          <div class="col-xs-6">
-			            DJ Khaled
-			            <br />
-			            <span class="text-muted"><small>Offline</small></span>
-			          </div>
-			          <div class="col-xs-3 text-right">
-			            <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
-			          </div>
-			        </div> <!-- end row -->
-			      </li>
-			      <li>
-			        <div class="row">
-			          <div class="col-xs-3">
-			            <div class="avatar">
-			              <img src="../images/default-face.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
-			            </div>
-			          </div>
-			          <div class="col-xs-6">
-			            DJ Khaled
-			            <br />
-			            <span class="text-muted"><small>Offline</small></span>
-			          </div>
-			          <div class="col-xs-3 text-right">
-			            <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn>
-			          </div>
-			        </div> <!-- end row -->
-			      </li>
-			    </ul>
-			  </div> <!-- end content -->
-			</div> <!-- end card -->
+
 	  </div><!-- end container -->
 		<% include ../partials/footer %>
+		<script>
+			$(document).ready(function () {
+				$(".rating").rating();
+
+				$("#btnSubmit").on("click", function () {
+					var comment = $("#comment").val();
+					var data = {
+						comment : comment
+					}
+					$.post("/demo/addComments", data, function (result) {
+
+					});
+				})
+			})
+		</script>
 	</body>
 </html>

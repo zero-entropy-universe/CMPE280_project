@@ -40,8 +40,11 @@
       $(document).ready(function () {
         $("#btnSearch").on("click", function () {
           var searchContent = $("#txtSearch").val();
-          $.post("/search", searchContent, function (result) {
-            
+          var data = {
+            content : searchContent
+          }
+          $.post("/search", data, function (result) {
+
           })
         })
       });
