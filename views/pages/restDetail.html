@@ -2,7 +2,7 @@
 <html>
 <head>
 	<% include ../partials/head %>
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> -->
+
 	<style>
 	html,
 	body {
@@ -34,6 +34,7 @@
 				</div>
 				<div id="phone">
 					<p><span class="glyphicon glyphicon-phone"></span> <%= restaurantInfo.phone %></p>
+					<!-- <%= restaurantInfo.name %> -->
 				</div>
 			</div>
 
@@ -44,7 +45,28 @@
 
 		<div class="row comments">
 			<h2>Comments</h2>
-			<form>
+			<!-- <div id = "onecomment"></div> -->
+
+			<ul>
+			<% for(var i in restaurantComments) {%>
+			   <!-- <li><%= restaurantComments[i].content %></li> -->
+			   <li><%= restaurantComments[i].content %></li>
+			<% } %>
+			</ul>
+
+
+
+			<!-- <table class="table">
+				<tbody>
+					<tr>
+						<div id = "onecomment"></div>
+					</tr>
+
+				</tbody>
+			</table> -->
+
+
+			<!-- <form>
 				<fieldset>
 					<div class="form-group">
 						<label for="username">Your name</label>
@@ -56,7 +78,7 @@
 					</div>
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</fieldset>
-			</form>
+			</form> -->
 		</div>
 
 		<div class="data">
@@ -65,12 +87,45 @@
 		</div>
 	</div>
 
-
+  <% include ../partials/footer%>
 	<script>
 	var map;
 	var geocoder;
 	var address = "<%= restaurantAddress %>";
 	var restaurantInfo = "<%= restaurantInfo%>";
+	// var restaurantComments = "<%= restaurantCommentOut%>";
+	var restaurantComments = <%-JSON.stringify(restaurantCommentOut)%>;
+	console.log(restaurantComments);
+	// document.getElementById("onecomment").innerHTML =
+	// `
+	// <table class="table">
+	//     <thead>
+	//       <tr>
+	//         <th>Firstname</th>
+	//         <th>Lastname</th>
+	//         <th>Email</th>
+	//       </tr>
+	//     </thead>
+	//     <tbody>
+	//       <tr>
+	//         <td>John</td>
+	//         <td>Doe</td>
+	//         <td>john@example.com</td>
+	//       </tr>
+	//       <tr>
+	//         <td>Mary</td>
+	//         <td>Moe</td>
+	//         <td>mary@example.com</td>
+	//       </tr>
+	//       <tr>
+	//         <td>July</td>
+	//         <td>Dooley</td>
+	//         <td>july@example.com</td>
+	//       </tr>
+	//     </tbody>
+	//   </table>
+  // `;
+	// restaurantComments[0].userId + restaurantComments[0].content;
 	function initMap() {
 		// Constructor creates a new map - only center and zoom are required.
 		geocoder = new google.maps.Geocoder();
@@ -111,7 +166,7 @@
 			}
 		});
 
-		marker.addListener('click', toggleBounce);
+		// marker.addListener('click', toggleBounce);
 	}
 
 	function toggleBounce() {
