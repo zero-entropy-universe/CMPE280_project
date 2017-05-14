@@ -23,12 +23,10 @@
                         <div class="openings panel animated slideInUp">
                             <img src=<%= temp[i].image%>  class="panel-body">
                             <div class="panel-footer">
-                                <span class="newName"><%= temp[i].name%></span><br>
+                                <a href="/restDetail/<%=temp[i].id%>"><span class="newName"><%= temp[i].name%></span></a><br>
                                 <span class="newCategory"><%= temp[i].category%></span><br>
                                 <span class="words"><%=temp[i].address%></span><br>
                             </div>
-
-
                         </div>
                     </div>
                 <% }%>
