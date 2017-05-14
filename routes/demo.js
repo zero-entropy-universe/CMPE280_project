@@ -41,6 +41,7 @@ module.exports = function (firebase) {
       return res.json({done: false});
     });
   });
+
   router.get("/allComments", function (req, res) {
     console.log("in all comments")
     firebase.database().ref("/comments/").once('value').then(function(snapshot) {
@@ -57,7 +58,7 @@ module.exports = function (firebase) {
       });
       console.log(arr);
     });
-  })
+  });
 
   router.get("/comments/:id", function (req, res) {
     var url = "/comments/" + req.params.id;
@@ -68,8 +69,8 @@ module.exports = function (firebase) {
 
 
 
-  router.post("/", function (req, res) {
-
+  router.post("/addComments", function (req, res) {
+    var comment = req.body.comment;
   });
 
   return router;

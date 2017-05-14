@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.set('views', path.join(__dirname, 'views/')); // set view path
 
 // import routers
-var index = require('./routes/index')();
+var index = require('./routes/index')(firebase);
 var demo = require('./routes/demo')(firebase);
 var addRestaurant = require('./routes/addRestaurant')(firebase);
 var newRes =require('./routes/newRes')(firebase);

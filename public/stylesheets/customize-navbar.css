@@ -24,12 +24,8 @@
   border-radius: 6px;
   margin-top: -5px; }
 
-.navbar-default {
-
-
-}
 .navbar-default .brand {
-  color: #66615b;
+  color: white;
 }
 .navbar .navbar-nav > li > a p {
   display: inline-block;
@@ -41,7 +37,7 @@
 }
 /* navbar link (not a button) */
 .navbar-default .navbar-nav > li > a:not(.btn) {
-  color: #9A9A9A;
+  color: white;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:not(.btn):hover,

@@ -212,3 +212,7 @@ img.cover{
 .myIndexContainer {
   margin-top: 300px;
 }
+
+.navbar-fixed-bottom {
+  margin-bottom: 20px;
+}
