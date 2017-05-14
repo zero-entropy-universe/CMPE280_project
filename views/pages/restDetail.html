@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<% include ../partials/head %>
@@ -15,16 +14,23 @@
 		height: 300px;
 		width: 500px;
 	}
-	/*.row {
-	height: 300px;
-	margin-top: 100px;
-	}*/
+	.row {
+	/*height: 10px;*/
+	margin: 10px 0 20px 0;
+	}
 
 	</style>
 </head>
 <body>
 	<% include ../partials/nav %>
 	<div class="container">
+		<div>
+				<img class="cover animated fadeInDown" src="../images/sf.jpg">
+		</div>
+		<div class="row title">
+				<h1 id="ownsub"class="animated shake text-center">Restaurant details</h3>
+		</div>
+
 		<div class="row">
 			<div class="col-xs-6">
 				<div id="map" class="google map"></div>
@@ -45,144 +51,152 @@
 		</div>
 
 		<div class="row comments">
-			<h2>Comments</h2>
+			<!-- <h2></h2> -->
 			<!-- <div id = "onecomment"></div> -->
-
-
-
-
-
-			<!-- <table class="table">
-				<tbody>
+			<!-- <div class="row"> -->
+			<!-- <caption>Comments</caption> -->
+			<table class="table table-striped">
+				<thead>
 					<tr>
-						<div id = "onecomment"></div>
+						<th>Username</th>
+						<th>Comments</th>
+						<th>Rating</th>
 					</tr>
+				</thead>
+				<tbody>
+					<% for (var i=0;i<restaurantCommentOut.length;i++){%>
+						<tr>
+							<td><%=restaurantCommentOut[i].userId%></td>
+							<td><%= restaurantCommentOut[i].content%></td>
+							<td><%=restaurantCommentOut[i].rating.toString()%></td>
+						</tr>
+						<% }%>
+					</tbody>
+				</table>
+			</div>
+				<!-- </div> -->
+			<div class="row form">
+				<form>
+					<fieldset>
+						<div class="form-group">
+							<label for="username">Your name</label>
+							<input type="text" id="username" class="form-control" placeholder="Enter your name">
+						</div>
+						<div class="form-group">
+							<label for="disabledSelect">Your comments</label>
+							<textarea class="form-control" rows="3" placeholder="Enter your comments"></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</fieldset>
+				</form>
+			</div>
 
-				</tbody>
-			</table> -->
-
-
-			<!-- <form>
-				<fieldset>
-					<div class="form-group">
-						<label for="username">Your name</label>
-						<input type="text" id="username" class="form-control" placeholder="Enter your name">
-					</div>
-					<div class="form-group">
-						<label for="disabledSelect">Your comments</label>
-						<textarea class="form-control" rows="3" placeholder="Enter your comments"></textarea>
-					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</fieldset>
-			</form> -->
+			<div class="data">
+				<!-- <h2>Comments</h2> -->
+				<!-- <%= restaurantAddress %> -->
+			</div>
 		</div>
 
-		<div class="data">
-			<!-- <h2>Comments</h2> -->
-			<!-- <%= restaurantAddress %> -->
-		</div>
-	</div>
+		<% include ../partials/footer%>
+		<script>
+		var map;
+		var geocoder;
+		var address = "<%= restaurantAddress %>";
+		var restaurantInfo = "<%= restaurantInfo%>";
+		// var restaurantComments = "<%= restaurantCommentOut%>";
+		// var restaurantComments = <%-JSON.stringify(restaurantCommentOut)%>;
+		// console.log(restaurantComments);
+		// document.getElementById("onecomment").innerHTML =
+		// `
+		// <table class="table">
+		//     <thead>
+		//       <tr>
+		//         <th>Firstname</th>
+		//         <th>Lastname</th>
+		//         <th>Email</th>
+		//       </tr>
+		//     </thead>
+		//     <tbody>
+		//       <tr>
+		//         <td>John</td>
+		//         <td>Doe</td>
+		//         <td>john@example.com</td>
+		//       </tr>
+		//       <tr>
+		//         <td>Mary</td>
+		//         <td>Moe</td>
+		//         <td>mary@example.com</td>
+		//       </tr>
+		//       <tr>
+		//         <td>July</td>
+		//         <td>Dooley</td>
+		//         <td>july@example.com</td>
+		//       </tr>
+		//     </tbody>
+		//   </table>
+		// `;
+		// restaurantComments[0].userId + restaurantComments[0].content;
+		function initMap() {
+			// Constructor creates a new map - only center and zoom are required.
+			geocoder = new google.maps.Geocoder();
+			// google.maps.LatLng 物件
+			// var coord = new google.maps.LatLng({lat: 37.335187, lng: -121.881072});
+			var coord = new google.maps.LatLng(address);
 
-  <% include ../partials/footer%>
-	<script>
-	var map;
-	var geocoder;
-	var address = "<%= restaurantAddress %>";
-	var restaurantInfo = "<%= restaurantInfo%>";
-	// var restaurantComments = "<%= restaurantCommentOut%>";
-	// var restaurantComments = <%-JSON.stringify(restaurantCommentOut)%>;
-	// console.log(restaurantComments);
-	// document.getElementById("onecomment").innerHTML =
-	// `
-	// <table class="table">
-	//     <thead>
-	//       <tr>
-	//         <th>Firstname</th>
-	//         <th>Lastname</th>
-	//         <th>Email</th>
-	//       </tr>
-	//     </thead>
-	//     <tbody>
-	//       <tr>
-	//         <td>John</td>
-	//         <td>Doe</td>
-	//         <td>john@example.com</td>
-	//       </tr>
-	//       <tr>
-	//         <td>Mary</td>
-	//         <td>Moe</td>
-	//         <td>mary@example.com</td>
-	//       </tr>
-	//       <tr>
-	//         <td>July</td>
-	//         <td>Dooley</td>
-	//         <td>july@example.com</td>
-	//       </tr>
-	//     </tbody>
-	//   </table>
-  // `;
-	// restaurantComments[0].userId + restaurantComments[0].content;
-	function initMap() {
-		// Constructor creates a new map - only center and zoom are required.
-		geocoder = new google.maps.Geocoder();
-		// google.maps.LatLng 物件
-		// var coord = new google.maps.LatLng({lat: 37.335187, lng: -121.881072});
-		var coord = new google.maps.LatLng(address);
+			map = new google.maps.Map(document.getElementById('map'), {
+				// center: {lat: 37.335187, lng: -121.881072},
+				zoom: 17
+			});
 
-		map = new google.maps.Map(document.getElementById('map'), {
-			// center: {lat: 37.335187, lng: -121.881072},
-			zoom: 17
-		});
+			// 傳入 latLng 資訊至 geocoder.geocode
+			// geocoder.geocode({'latLng': coord }, function(results, status) {
+			// change address to latLng
+			var image = {
+				// see setting https://developers.google.com/maps/documentation/javascript/markers?hl=zh-tw
+				url: 'https://www.javatpoint.com/images/javascript/javascript_logo.png',
+				// This marker is 20 pixels wide by 32 pixels high.
+				// size: new google.maps.Size(20, 32),
+				// The origin for this image is (0, 0).
+				// origin: new google.maps.Point(0, 0),
+				// The anchor for this image is the base of the flagpole at (0, 32).
+				// anchor: new google.maps.Point(0, 32)
+			};
 
-		// 傳入 latLng 資訊至 geocoder.geocode
-		// geocoder.geocode({'latLng': coord }, function(results, status) {
-		// change address to latLng
-		var image = {
-			// see setting https://developers.google.com/maps/documentation/javascript/markers?hl=zh-tw
-			url: 'https://www.javatpoint.com/images/javascript/javascript_logo.png',
-			// This marker is 20 pixels wide by 32 pixels high.
-			// size: new google.maps.Size(20, 32),
-			// The origin for this image is (0, 0).
-			// origin: new google.maps.Point(0, 0),
-			// The anchor for this image is the base of the flagpole at (0, 32).
-			// anchor: new google.maps.Point(0, 32)
-		};
+			geocoder.geocode({'address': address}, function(results, status) {
+				if (status == 'OK') {
+					map.setCenter(results[0].geometry.location);
+					var marker = new google.maps.Marker({
+						map: map,
+						position: results[0].geometry.location,
+						animation: google.maps.Animation.DROP,
+						// icon: image
+					});
+				} else {
+					alert('Geocode was not successful for the following reason: ' + status);
+				}
+			});
 
-		geocoder.geocode({'address': address}, function(results, status) {
-			if (status == 'OK') {
-				map.setCenter(results[0].geometry.location);
-				var marker = new google.maps.Marker({
-					map: map,
-					position: results[0].geometry.location,
-					animation: google.maps.Animation.DROP,
-					// icon: image
-				});
-			} else {
-				alert('Geocode was not successful for the following reason: ' + status);
-			}
-		});
-
-		// marker.addListener('click', toggleBounce);
-	}
-
-	function toggleBounce() {
-		if (marker.getAnimation() !== null) {
-			marker.setAnimation(null);
-		} else {
-			marker.setAnimation(google.maps.Animation.BOUNCE);
+			// marker.addListener('click', toggleBounce);
 		}
-	}
+
+		function toggleBounce() {
+			if (marker.getAnimation() !== null) {
+				marker.setAnimation(null);
+			} else {
+				marker.setAnimation(google.maps.Animation.BOUNCE);
+			}
+		}
 
 
-	// marker.setMap(map);
+		// marker.setMap(map);
 
-	</script>
-
-
-	<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X4b-bn6IjOnnJxtyAKQlRO8dF0iV00s&v=3&callback=initMap">
-	</script>
+		</script>
 
 
-</body>
-</html>
+		<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9X4b-bn6IjOnnJxtyAKQlRO8dF0iV00s&v=3&callback=initMap">
+		</script>
+
+
+	</body>
+	</html>
