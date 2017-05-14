@@ -18,34 +18,33 @@
   </head>
   <body>
     <% include ../partials/nav %>
-
     <video autoplay loop id="bgvid">
       <source src="/video/background.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
-    <div class="container animated fadeInDown">
+    <div class="container myIndexContainer animated fadeInDownBig">
       <div class="row">
-        <a class="ui tag label">Best Restaurant</a>
-
+        <span style="font-family: 'Antic Slab', serif; font-size: 40px;color:white">Best Chinese Restaurant in Bay Area</span>
       </div>
       <br />
       <div class="row">
-        <div class="ui icon input">
-          <input type="text" placeholder="Search...">
-          <i class="inverted circular search link icon"></i>
+        <div class="ui massive icon input">
+          <input type="text" placeholder="Search Restaurant..." id="txtSearch">
+          <i class="inverted circular search link icon" id="btnSearch"></i>
         </div>
       </div>
     </div>
     <br>
-
     <% include ../partials/footer%>
+    <script>
+      $(document).ready(function () {
+        $("#btnSearch").on("click", function () {
+          var searchContent = $("#txtSearch").val();
+          $.post("/search", searchContent, function (result) {
+            
+          })
+        })
+      });
+    </script>
   </body>
-
 </html>
