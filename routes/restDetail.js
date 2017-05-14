@@ -29,18 +29,24 @@ module.exports = function (firebase) { // firebase
         for (var i in restaurantComments) {
           if (id === restaurantComments[i].restaurant_id) {
             console.log(restaurantComments[i].commentList);
+            // restaurantCommentOut = [];
             // for (var j in restaurantComments[i].commentList) {
               // restaurantCommentOut.push(JSON.stringify(restaurantComments[i].commentList[j]));
-            // restaurantCommentOut.push(JSON.stringify(restaurantComments[i].commentList));
-            // restaurantCommentOut.push((restaurantComments[i].commentList));
-            restaurantCommentOut = restaurantComments[i].commentList.slice();
+              // restaurantCommentOut.push(JSON.stringify(restaurantComments[i].commentList));
+              // restaurantCommentOut.push((restaurantComments[i].commentList));
+              restaurantCommentOut = restaurantComments[i].commentList.slice();
+              // restaurantCommentOut = {};
+              // console.log(restaurantCommentOut, 'commentlist');
+              // restaurantCommentOut[j] = restaurantComments[i].commentList[j].slice();
+
 
 
           }
         }
-        console.log(restaurantCommentOut);
+        console.log(typeof restaurantCommentOut);
+        // console.log(restaurantCommentOut);
         // for (var i=0; i<restaurantComments.length; i++) {
-          // if (restaurantComments[i])
+        // if (restaurantComments[i])
         // }
         res.render("pages/restDetail", {restaurantInfo : restaurantOption, restaurantAddress: restaurantOption.address, restaurantCommentOut: restaurantCommentOut});
       });
