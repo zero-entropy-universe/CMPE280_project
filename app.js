@@ -47,6 +47,7 @@ var addRestaurant = require('./routes/addRestaurant')(firebase);
 var newRes =require('./routes/newRes')(firebase);
 var restDetail = require('./routes/restDetail')(firebase);
 var searchResult = require('./routes/searchResult')(firebase);
+var about = require('./routes/about')();
 
 // Route url to routers
 app.use('/', index);
@@ -58,6 +59,7 @@ app.use('/restDetail', restDetail);
 app.get('/restDetail/:id', restDetail);
 app.use('/restDetail',restDetail);
 app.use('/searchResult', searchResult);
+app.use('/about', about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

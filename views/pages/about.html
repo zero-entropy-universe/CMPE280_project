@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <% include ../partials/head %>
+  <style>
 
-<style>
-
-video#bgvid { 
-  position: fixed; right: 0; bottom: 0; 
- // min-width: 100%; min-height: 100%; 
-  width: auto; 
-  height: auto; 
-  z-index: -100; 
- // background: url(normalbg.jpg) no-repeat; 
-  background-size: cover;
+  video #bgvid {
+    position: fixed; right: 0; bottom: 0;
+    /*// min-width: 100%; min-height: 100%;*/
+    width: auto;
+    height: auto;
+    z-index: -100;
+    /*<!-- // background: url(normalbg.jpg) no-repeat; -->*/
+    background-size: cover;
   }
 
-</style>
+  </style>
 </head>
+
 <body>
-<video autoplay loop  id="bgvid"> 
-<source src="background" type="video/mp4"></video>
+  <% include ../partials/nav %>
+  <video autoplay loop  id="bgvid">
+    <source src="video/background.mp4" type="video/mp4">
+    </video>
 
 
 
 
+    <% include ../partials/footer%>
+  </body>
 
-</body>
-</html>
+  </html>
