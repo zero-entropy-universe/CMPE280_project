@@ -203,6 +203,10 @@ img.cover{
   background-color: #F0F0F5;
 }
 /*searchResult.html*/
+#restaurantNum{
+  margin-left: 80px;
+  margin-right: 80px;
+}
 #restaurantNum:hover {
   transform: scale(1.05);
   transition: all 0.5s linear;
@@ -210,9 +214,16 @@ img.cover{
 .restaurantName i {
   color: #FF337A;
 }
+
+/* index.html */
+
 .myIndexContainer {
-  margin-top: 300px;
+  margin-top: 250px;
 }
+/*.myIndexContainer .row span {
+  text-align: center;
+}*/
+/* index.html end*/
 
 @keyframes myheartanimation {
   0% {
@@ -235,4 +246,11 @@ img.cover{
 
 .navbar-fixed-bottom {
   margin-bottom: 20px;
+}
+/*logo*/
+#logo{
+  padding-top: 8px;
+  width: 140px;
+  height: 80px;
+  background-color:transparent;
 }
