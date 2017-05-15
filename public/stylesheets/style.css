@@ -301,13 +301,11 @@ td {
   color:rgba(0, 0,0, 0.7);
   /*width:400px;*/
   height:100%;
-  border-radius:20px;
-  margin-top: 20px;
   /*float: right;*/
   /*margin-right: 100px;*/
 }
 .aboutULDiv ul {
-  margin-left: -40px; 
+  margin-left: -40px;
 }
 .aboutBody{
   background-image: url("../images/about.jpg");
