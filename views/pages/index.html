@@ -67,8 +67,7 @@
           var data = {
             content : searchContent
           }
-          $.post("/search", data, function (result) {
-          })
+          window.location.href = "/searchResult/" + searchContent;
         })
       });
     </script>

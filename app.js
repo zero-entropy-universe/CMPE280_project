@@ -56,8 +56,8 @@ app.use('/addRestaurant', addRestaurant);
 app.use('/newRes',newRes);
 // app.get('/restDetail/:id', restDetail);
 app.use('/restDetail', restDetail);
-app.get('/restDetail/:id', restDetail);
-app.use('/restDetail',restDetail);
+// app.get('/restDetail/:id', restDetail);
+// app.use('/restDetail',restDetail);
 app.use('/searchResult', searchResult);
 app.use('/about', about);
 
