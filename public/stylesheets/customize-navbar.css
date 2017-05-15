@@ -12,7 +12,7 @@
 }
 .navbar .navbar-nav li a {
   line-height: 1.42857;
-  margin: 15px 0px;
+  margin: 18px 16px;
   padding: 10px 15px;
 }
 .navbar .btn {
@@ -25,7 +25,8 @@
   margin-top: -5px; }
 
 .navbar-default .brand {
-  color: white;
+  color: #66615b;
+  font-weight: bold;
 }
 .navbar .navbar-nav > li > a p {
   display: inline-block;
@@ -37,7 +38,8 @@
 }
 /* navbar link (not a button) */
 .navbar-default .navbar-nav > li > a:not(.btn) {
-  color: white;
+  color: #9a9a9a;
+  font-weight: bold;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:not(.btn):hover,
