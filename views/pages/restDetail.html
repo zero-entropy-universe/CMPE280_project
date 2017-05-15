@@ -25,15 +25,18 @@ margin: 10px 0 20px 0;
 	<% include ../partials/nav %>
 	<div class="container">
 		<div>
-				<img class="cover animated fadeInDown" src="../images/sf.jpg">
-		</div>
-		<div class="row title">
-				<h1 id="ownsub" class="animated swing text-center"><%= restaurantInfo.name %></h1>
-		</div>
+				<img class="cover animated fadeInDown" src="../images/fs.jpg">
+		</div><br>
 
 		<div class="row restInfo">
-			<div class="col-xs-6">
-				<div id="map" class="google map"></div>
+			<div class="col-xs-2">
+			</div>
+			<div class="col-xs-4 pictures">
+				<img src="<%= restaurantInfo.image%>"  class="panel-body" style="float:right;width:500px;">
+			</div>
+			<div class="col-xs-4">
+
+				<span id="ownsub" class="animated swing"><%= restaurantInfo.name %></span>
 				<div id="address">
 					<p><span class="glyphicon glyphicon-map-marker"></span> <%= restaurantInfo.address %></p>
 				</div>
@@ -41,14 +44,15 @@ margin: 10px 0 20px 0;
 					<p><span class="glyphicon glyphicon-phone"></span> <%= restaurantInfo.phone %></p>
 					<!-- <%= restaurantInfo.name %> -->
 				</div>
+				<div id="map" class="google map" ></div>
+			</div>
+			<div class="col-xs-2">
 			</div>
 
-			<div class="col-xs-6 pictures">
-				<img src="<%= restaurantInfo.image%>"  class="panel-body" height="300">
-			</div>
+
 		</div>
 		<!-- comment list display -->
-		<div class="row col-md-8 col-md-offset-2 comments">
+		<div class="row col-md-10 comments">
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -68,7 +72,10 @@ margin: 10px 0 20px 0;
 			</table>
 		</div>  <!-- end comments list display -->
 		<!-- write comment -->
-		<div class="row col-md-6 col-md-offset-3">
+		<div class="col-md-2">
+			</div>
+		<div class="row col-md-8">
+			<label>Leave your comment here</label><br>
 			<div class="ui huge star rating">
 			  <i class="icon"></i>
 			  <i class="icon"></i>
@@ -78,7 +85,6 @@ margin: 10px 0 20px 0;
 			</div>
 			<form class="ui form">
 				<div class="field">
-			    <label>Leave your comment here</label>
 			    <textarea id="txtComment"></textarea>
 			  </div>
 			  <button class="btn btn-primary" id="btnSubmitComment" tag="<%= commentId%>">Submit</button>
