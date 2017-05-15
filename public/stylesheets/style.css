@@ -199,10 +199,14 @@ img.cover{
 /* newRes.html end*/
 
 /* navbar */
-.navbar {
+.indexNavbar {
   background-color: transparent;
   background: transparent;
   border-color: transparent;
+}
+
+.regularNavbar {
+  background-color: white;
 }
 
 .navbar li { color: #000 }
@@ -210,6 +214,13 @@ img.cover{
 .panel-body {
   background-color: #F0F0F5;
 }
+
+.indexNavbarText {
+  color:white;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+
+
 /*searchResult.html*/
 #restaurantNum{
   margin-left: 80px;

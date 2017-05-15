@@ -1,0 +1,28 @@
+        <%for (var i = 0; i < searchResult.length; i++){%>
+          <div class="panel animated slideInUp" id="restaurantNum" style=" background-color：red;box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 16px 0 rgba(0, 0, 0, 0.19); border-radius: 20px;">
+            <div class="panel-body" style="border-radius: 20px;">
+              <div class="row" style="width: 800px;">
+                <div class="col-md-4">
+                  <img src=<%= searchResult[i].image%> style="width:100%; border-radius: 20px;"/>
+                </div>
+                <div class="col-md-8">
+                  <div class="row col-md-offset-3" style="height:40%;margin-top:-5px">
+                    <h2 class="restaurantName"><a href="/restDetail/-KighKkTqQ9DhIuMGg9f"><%=searchResult[i].name%></a></h2>
+                  </div>
+                  <div class="row col-md-offset-3" style="height:30%;">
+                  <br/>
+                    <a class="ui tag label">New</a>
+                    <a class="ui red tag label">Upcoming</a>
+                    <a class="ui teal tag label">Featured</a>
+                  <br/>
+                  </div>
+                  <div class="row col-md-offset-3" style="height:30%;">
+                  <br/>
+                    <p id="restaurantAdd"><%=searchResult[i].address%></p>
+                  <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <%}%>

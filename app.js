@@ -48,6 +48,7 @@ var newRes =require('./routes/newRes')(firebase);
 var restDetail = require('./routes/restDetail')(firebase);
 var searchResult = require('./routes/searchResult')(firebase);
 var about = require('./routes/about')();
+var user = require("./routes/user")(firebase);
 
 // Route url to routers
 app.use('/', index);
@@ -60,6 +61,7 @@ app.use('/restDetail', restDetail);
 // app.use('/restDetail',restDetail);
 app.use('/searchResult', searchResult);
 app.use('/about', about);
+app.use("/user", user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

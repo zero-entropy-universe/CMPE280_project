@@ -37,7 +37,7 @@
 			<% if (commentList.length != 0) { %>
 				<table class="table table-striped" style="border-radius: 20px;">
 					<thead>
-						<tr>
+						<tr style="font-family: 'Antic Slab', serif; font-size: 20px">
 							<th>Comments</th>
 							<th>Rating</th>
 						</tr>
@@ -47,7 +47,7 @@
 							<tr>
 								<td style="width: 550px;">
 									<div class="ui stacked segment">
-										<p><%= commentList[i].content%></p>
+										<p style="font-family: 'Quicksand', sans-serif;"><%= commentList[i].content%></p>
 									</div>
 								</td>
 								<td>
@@ -74,7 +74,8 @@
 		<hr/>
 		<!-- write comment -->
 		<div class="row col-md-9 col-md-offset-1">
-			<label>Leave your comment here</label><br>
+			<span style="font-family: 'Antic Slab', serif; font-size: 25px">Leave your comment here</span>
+			<br>
 			<div class="ui huge star rating" id="myRating">
 			  <i class="icon"></i>
 			  <i class="icon"></i>
@@ -83,8 +84,8 @@
 			  <i class="icon"></i>
 			</div>
 			<div class="ui form">
-				<div class="field">
-			    <textarea id="txtComment"></textarea>
+				<div class="ui piled segment">
+			    <textarea id="txtComment" style="font-family: 'Quicksand', sans-serif; font-size: 15px;"></textarea>
 			  </div>
 			  <button class="btn btn-primary" id="btnSubmitComment" tag="<%= commentId%>">Submit</button>
 			</div>

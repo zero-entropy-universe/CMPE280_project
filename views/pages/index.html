@@ -36,6 +36,13 @@
     </div>
     <script>
       $(document).ready(function () {
+        $("#txtSearch").keyup(function(event){
+          if(event.keyCode == 13){
+            $("#btnSearch").click();
+          }
+        });
+
+        
         $("#btnSearch").on("click", function () {
           var searchContent = $("#txtSearch").val();
           var data = {

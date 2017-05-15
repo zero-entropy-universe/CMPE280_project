@@ -24,8 +24,10 @@ module.exports = function (firebase) {
       arr.forEach(function (element, index) {
         // console.log(arr[index]);
         if (element.region.toLowerCase() == searchContent
+              || element.region.replace(/ /g, '').toLowerCase == searchContent
               || element.name.toLowerCase().includes(searchContent)
-              || element.category.toLowerCase().includes(searchContent)) {
+              || element.category.toLowerCase().includes(searchContent)
+              || element.categoryreplace(/ /g, '').toLowerCase == searchContent) {
           result.push(arr[index]);
         }
       });
