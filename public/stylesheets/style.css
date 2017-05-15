@@ -254,3 +254,13 @@ img.cover{
   height: 80px;
   background-color:transparent;
 }
+
+/* restDetail */
+#map {
+  width: 200px;
+  height: 200px;
+}
+
+.restInfo {
+  
+}

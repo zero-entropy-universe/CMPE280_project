@@ -3,7 +3,26 @@ var router = express.Router();
 
 module.exports = function (firebase) {
   router.get('/', function(req, res) {
+
+
+
   	res.render("pages/demo");
+  });
+
+  router.get("/test/:id", function (req, res) {
+    var commentRef = firebase.database().ref('/comments/');
+    var id = req.params.id;
+    commentRef.orderByChild("restaurant_id").equalTo(id).once("value").then(function (snapshot) {
+      var commentId = (Object.keys(snapshot.val()))[0];
+      var commentObject = snapshot.val();
+      var commentList = snapshot.val()[commentId].commentList;
+      var arr = [];
+      Object.keys(commentList).forEach(function (key, index) {
+        arr.push(commentList[key]);
+      });
+      // console.log(arr);
+      res.render("pages/demo", {commentList: arr});
+    });
   });
 
   /**
