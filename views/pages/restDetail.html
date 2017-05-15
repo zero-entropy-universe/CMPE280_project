@@ -28,9 +28,9 @@ margin: 10px 0 20px 0;
 				<img class="cover animated fadeInDown" src="../images/sf.jpg">
 		</div>
 		<div class="row title">
-				<h1 id="ownsub" class="animated shake text-center"><%= restaurantInfo.name %></h1>
+				<h1 id="ownsub" class="animated swing text-center"><%= restaurantInfo.name %></h1>
 		</div>
-		
+
 		<div class="row restInfo">
 			<div class="col-xs-6">
 				<div id="map" class="google map"></div>
@@ -61,7 +61,7 @@ margin: 10px 0 20px 0;
 						<tr>
 							<td><%= commentList[i].content%></td>
 							<td><%=commentList[i].rating%></td>
-							
+
 						</tr>
 					<% }%>
 				</tbody>
@@ -91,7 +91,7 @@ margin: 10px 0 20px 0;
 		var map;
 		var geocoder;
 		var address = "<%= restaurantInfo.address %>";
-		
+
 		function initMap() {
 			// Constructor creates a new map - only center and zoom are required.
 			geocoder = new google.maps.Geocoder();
