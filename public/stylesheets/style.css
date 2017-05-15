@@ -1,3 +1,21 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @MingxiaoGuo
+ Sign out
+ Unwatch 5
+  Star 1
+  Fork 0 MingxiaoGuo/CMPE280_project Private
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathCMPE280_project/public/stylesheets/style.css
+2991a69  18 minutes ago
+@wangjueolivia wangjueolivia updated style
+3 contributors @MingxiaoGuo @wangjueolivia @ElaineMa4
+RawBlameHistory     
+272 lines (231 sloc)  4.42 KB
 /***************************************************/
 /******************** override *********************/
 /***************************************************/
@@ -117,7 +135,7 @@ a {
     border-top: 1px solid;
     border-top-color: #979797;
 
-	text-align: right;
+  text-align: right;
 }
  #footerIcon  {
   width:60px;
@@ -257,10 +275,16 @@ img.cover{
 
 /* restDetail */
 #map {
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 240px;
+  margin-top: 20px;
 }
-
+#ownsub{
+  font-size: 30px;
+}
 .restInfo {
-  
+
+}
+.comments{
+  margin: 10px 50px 0 50px;
 }
