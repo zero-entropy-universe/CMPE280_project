@@ -67,5 +67,10 @@ module.exports = function (firebase) { // firebase
   //    res.render('pages/index');
   //  });
 
+
+  router.post("/addComment", function (req, res) {
+    
+  });
+
   return router;
 };

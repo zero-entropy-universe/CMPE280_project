@@ -62,15 +62,26 @@ module.exports = function (firebase) {
 
   router.get("/comments/:id", function (req, res) {
     var url = "/comments/" + req.params.id;
-    firebase.database().ref(url).once('value').then(function(snapshot) {
-      console.log(snapshot.val().commentList);
-    });
+    // firebase.database().ref(url).once('value').then(function(snapshot) {
+    //   console.log(snapshot.val().commentList);
+    // });
   });
 
 
 
   router.post("/addComments", function (req, res) {
+    console.log("in add comment")
     var comment = req.body.comment;
+    var id = "-Kk36PSAu5YCVaDIHaXP";
+    var url = "/comments/" + id + "/commentList/"
+    var length = 3;
+    var ref = firebase.database().ref(url);
+    var newCommentRef = ref.push();
+    newCommentRef.set({
+      content: comment,
+      rating: 1,
+      userId: "hello"
+    });
   });
 
   return router;

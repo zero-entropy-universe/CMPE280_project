@@ -21,13 +21,15 @@
 		<% include ../partials/footer %>
 		<script>
 			$(document).ready(function () {
-				$(".rating").rating();
+				// $(".rating").rating();
 
 				$("#btnSubmit").on("click", function () {
 					var comment = $("#comment").val();
 					var data = {
-						comment : comment
+						comment : comment,
+						id: "some_id"
 					}
+					console.log(data);
 					$.post("/demo/addComments", data, function (result) {
 
 					});
