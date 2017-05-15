@@ -3,25 +3,47 @@
 <head>
   <% include ../partials/head %>
   <style>
-
-  video #bgvid {
-    position: fixed; right: 0; bottom: 0;
-    /*// min-width: 100%; min-height: 100%;*/
-    width: auto;
-    height: auto;
-    z-index: -100;
-    /*<!-- // background: url(normalbg.jpg) no-repeat; -->*/
-    background-size: cover;
+  .AboutUs{
+   background-color:rgba(236, 241, 213, 0.7);
+   color:rgba(0, 0,0, 0.7);
+   width:600px;
+   height:100%;
+   border-radius:20px;
+   float: center;
   }
-
   </style>
 </head>
 
 <body>
   <% include ../partials/nav %>
-  <video autoplay loop  id="bgvid">
-    <source src="video/background.mp4" type="video/mp4">
-    </video>
+  <div class = "container">
+   <div class = "row">
+    <div class = "col-md-8 col-md-push-3">
+      <div class ="AboutUs animated slideInUp">
+       <div class = "content" style = "padding:20px;">
+        <h4 style = "text-align: center; font-family: 'Sofia';font-size: 30px;">About Us</h4>
+        <ul style = "font-family: 'Alef';font-size: 14px;">
+        <span>This site aims to help people find great local Chinese restaurants in Bay area.</span><br><br>
+        <span><b>Features of this project:</b></span><br>
+        <li><b>Search Box</b> - Surpported searching based on name and location.</li>
+        <li><b>Database Connection</b> - All the restaurants information are fetched from firebase</li>
+        <li><b>Customized Style</b> - We design and code the style and animation learned from the class lectures</li>
+        <li><b>UI & UX Design</b> - We designed our own style and drawn our logo and footer</li>
+        <li><b>Tech Involved</b> - HTML, CSS, Javascript, BootStrap, NodeJs, firebase, googleMap API</li>
+        </ul>
+       </div>
+        <div id = "contacts" style = "padding:20px;" >
+          <h4 style = "font-family: 'Aladin';font-size: 30px; text-align:center;" >Contacts:</h4>
+          <ul style = "font-family: 'Aladin';font-size: 14px;">
+            <li>Address: 1 Washington Sq,<br>San Jose, CA 95192</li>
+            <li>Tel: 123-456-6785</li>
+          </ul>
+        </div>
+      </div>
+     </div>
+    </div>
+ </div>
+
 
 
 
