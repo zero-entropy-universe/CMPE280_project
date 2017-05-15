@@ -10,42 +10,53 @@ module.exports = function (firebase) { // firebase
     var restaurantRef = firebase.database().ref("/restaurant/" + restaurant_id);
     var commentRef = firebase.database().ref('/comments/');
     // format query using restaurant_id
-    commentRef.orderByChild("restaurant_id").equalTo(restaurant_id).once("value").then(function (snapshot) {
-      var commentId = (Object.keys(snapshot.val()))[0];
-      var commentObject = snapshot.val();
-      var commentList = snapshot.val()[commentId].commentList;
-      var arr = [];
-      Object.keys(commentList).forEach(function (key, index) {
-        arr.push(commentList[key]);
+    restaurantRef.once("value").then(function (resSnapshot) {
+      console.log(resSnapshot.val());
+      var restaurantInfo = {
+        id: restaurant_id,
+        address: resSnapshot.val().address,
+        category: resSnapshot.val().category,
+        description: resSnapshot.val().description,
+        image: resSnapshot.val().image,
+        name: resSnapshot.val().name,
+        newOpen: resSnapshot.val().newOpen,
+        openHours: // fake data
+         { Friday: { close: '10:30 PM', open: '11:00 AM' },
+           Monday: { close: 'close', open: 'close' },
+           Saturday: { close: '10:30 PM', open: '11:00 AM' },
+           Sunday: { close: '10:30 AM', open: '11:00 AM' },
+           Thursday: { close: '10:30 PM', open: '11:00 AM' },
+           Tuesday: { close: '10:30 PM', open: '11:00 AM' },
+           Wednesday: { close: '10:30 PM', open: '11:00 AM' } },
+        phone: resSnapshot.val().phone,
+        region: resSnapshot.val().region
+      };
+      restaurantInfo.id = resSnapshot.val();
+      //console.log(commentRef.orderByChild("restaurant_id").equalTo(restaurant_id).once("value"));
+      commentRef.orderByChild("restaurant_id").equalTo(restaurant_id).once("value").then(function (snapshot) {
+        if (snapshot.val() != null) {
+          var commentId = (Object.keys(snapshot.val()))[0];
+          var commentObject = snapshot.val();
+          var commentList = snapshot.val()[commentId].commentList;
+          var arr = [];
+          Object.keys(commentList).forEach(function (key, index) {
+            arr.push(commentList[key]);
+          });
+          res.render("pages/restDetail", {restaurantInfo: restaurantInfo, commentList: arr, commentId: commentId});
+        } else {
+          var url = "/comments/";
+          var ref = firebase.database().ref(url);
+          var newCommentRef = ref.push();
+          newCommentRef.set({
+            commentList: [],
+            restaurant_id: restaurant_id
+          })
+          var commentId =newCommentRef.key;
+          res.render("pages/restDetail", {restaurantInfo: restaurantInfo, commentList: [], commentId: commentId});
+        }
+
       });
-
-
-      // get restaurant information
-      restaurantRef.once("value").then(function (resSnapshot) {
-        console.log(resSnapshot.val());
-        var restaurantInfo = {
-          id: restaurant_id,
-          address: resSnapshot.val().address,
-          category: resSnapshot.val().category,
-          description: resSnapshot.val().description,
-          image: resSnapshot.val().image,
-          name: resSnapshot.val().name,
-          newOpen: resSnapshot.val().newOpen,
-          openHours: // fake data
-           { Friday: { close: '10:30 PM', open: '11:00 AM' },
-             Monday: { close: 'close', open: 'close' },
-             Saturday: { close: '10:30 PM', open: '11:00 AM' },
-             Sunday: { close: '10:30 AM', open: '11:00 AM' },
-             Thursday: { close: '10:30 PM', open: '11:00 AM' },
-             Tuesday: { close: '10:30 PM', open: '11:00 AM' },
-             Wednesday: { close: '10:30 PM', open: '11:00 AM' } },
-          phone: resSnapshot.val().phone,
-          region: resSnapshot.val().region
-        };
-        restaurantInfo.id = resSnapshot.val();
-        res.render("pages/restDetail", {restaurantInfo: restaurantInfo, commentList: arr, commentId: commentId});
-      })
-    });
+    })
   });
 
     //  var id =
@@ -105,7 +116,10 @@ module.exports = function (firebase) { // firebase
       rating: req.body.rating,
       userId: "hello"
     });
-    console.log(response);
+    res.json({
+      done: true,
+      message: "Thank you for your feedback!"
+    })
   });
 
 

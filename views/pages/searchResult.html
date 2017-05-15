@@ -9,8 +9,12 @@
       <div class="container">
         <h2 class="text-center animated swing">Restaurants We Got For You</h2>
         <%for (var i = 0; i < searchResult.length; i++){%>
-          <div class="panel" id="restaurantNum" style=" background-color：red;box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 16px 0 rgba(0, 0, 0, 0.19); border-radius: 10px;">
-            <div class="panel-body" style="border-radius: 10px;">
+          <div class="panel" id="restaurantNum" style="background-color：red;box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 16px 0 rgba(0, 0, 0, 0.19); border-radius: 10px;">
+            <% if (i % 2 == 0) { %>
+              <div class="panel-body animated fadeInRightBig" style="border-radius: 10px;">
+            <% } else { %>
+              <div class="panel-body animated fadeInLeftBig" style="border-radius: 10px;">
+            <% } %>
               <div class="row" style="width: 800px;">
                 <div class="col-md-4">
                   <img src=<%= searchResult[i].image%> style="width:100%; border-radius: 10px;height: 160px"/>

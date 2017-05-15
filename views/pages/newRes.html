@@ -9,29 +9,30 @@
  <!-- write your own HTML codes -->
 
     <div class="container">
-        <div>
-            <img class="cover animated fadeInDown" src="../images/sf.jpg">
-        </div>
-        <div class="row">
-            <h3 id="ownsub"class="animated swing text-center">Grand New Openings</h3>
-        </div>
-        <div class="row">
-            <% for (var i=0;i<temp.length;i++){%>
+      <div>
+        <img class="cover animated fadeInDown" src="../images/sf.jpg">
+      </div>
+      <div class="row">
+        <h3 id="ownsub"class="animated swing text-center">Grand New Openings</h3>
+      </div>
+      <div class="row">
+        <% for (var i=0;i<temp.length;i++){%>
 
-                <% if(temp[i].newOpen==true){%>
-                    <div class="col-xs-12 col-lg-4 ">
-                        <div class="openings panel animated slideInUp">
-                            <img src="<%= temp[i].image%>" class="panel-body newResImage">
-                            <div class="panel-footer">
-                                <a href="/restDetail/<%=temp[i].id%>"><span class="newName"><%= temp[i].name%></span></a><br>
-                                <span class="newCategory"><%= temp[i].category%></span><br>
-                                <span class="words"><%=temp[i].address%></span><br>
-                            </div>
-                        </div>
-                    </div>
-                <% }%>
-            <% }%>
-        </div>
+          <% if(temp[i].newOpen==true){%>
+            <div class="col-xs-12 col-lg-4 ">
+              <div class="openings panel animated slideInUp">
+                <img src="<%= temp[i].image%>" class="panel-body newResImage">
+                <div class="panel-footer">
+                  <a href="/restDetail/<%=temp[i].id%>"><span class="newName"><%= temp[i].name%></span></a><br>
+                  <a class="ui teal tag label newCategory" href="/searchResult/<%= temp[i].category%>"><%= temp[i].category%></a>
+                  <br>
+                  <span class="words"><%=temp[i].address%></span><br>
+                </div>
+              </div>
+            </div>
+          <% }%>
+        <% }%>
+      </div>
     </div>
  <% include ../partials/footer %>
  <script type="text/javascript">

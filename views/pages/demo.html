@@ -6,46 +6,58 @@
 	<body>
 		<% include ../partials/nav %>
 		<div class="container">
-<div class="ui modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Modal Title
-  </div>
-  <div class="content">
-    <div class="left">
-      Content can appear on left
-    </div>
-    <div class="right">
-      Content can appear on right
-    </div>
-  </div>
-  <div class="actions">
-    <div class="ui button">Cancel</div>
-    <div class="ui button">OK</div>
-  </div>
-</div>
+	<div class="ui two column middle aligned relaxed grid basic segment">
+	  <div class="column">
+	    <div class="ui form segment">
+			  <div class="field">
+			    <label>Username</label>
+			    <div class="ui left labeled icon input">
+			      <input type="text" placeholder="Username">
+			      <i class="user icon"></i>
+			      <div class="ui corner label">
+			        <i class="icon asterisk"></i>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="field">
+			    <label>Password</label>
+			    <div class="ui left labeled icon input">
+			      <input type="password">
+			      <i class="lock icon"></i>
+			      <div class="ui corner label">
+			        <i class="icon asterisk"></i>
+			      </div>
+			    </div>
+			  </div>
+			  <div class="ui error message">
+			    <div class="header">We noticed some issues</div>
+			  </div>
+			  <div class="btn btn-success">Login</div>
+			</div>
+	  </div>
+	  <div class="ui vertical divider">
+	    Or
+	  </div>
+	  <div class="center aligned column">
+	    <div class="huge green ui labeled icon button">
+	      <i class="signup icon"></i>
+	      Sign Up
+	    </div>
+	  </div>
+	</div>
 	  </div><!-- end container -->
 		<% include ../partials/footer %>
 		<script>
 
-
+				// $('.small.modal')
+				//   .modal()
+				// ;
 			$(document).ready(function () {
 				// $(".rating").rating();
-				$('.ui.modal')
-				  .modal()
-				;
-
-				
-				$("#btnSubmit").on("click", function () {
-					var comment = $("#comment").val();
-					var data = {
-						comment : comment,
-						id: "some_id"
-					}
-					console.log(data);
-					$.post("/demo/addComments", data, function (result) {
-
-					});
+				$("button").on("click", function () {
+					$('.ui.modal')
+					  .modal('show')
+					;
 				})
 			})
 		</script>

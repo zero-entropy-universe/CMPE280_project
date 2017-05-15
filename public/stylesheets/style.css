@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @MingxiaoGuo
- Sign out
- Unwatch 5
-  Star 1
-  Fork 0 MingxiaoGuo/CMPE280_project Private
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
-Branch: master Find file Copy pathCMPE280_project/public/stylesheets/style.css
-2991a69  18 minutes ago
-@wangjueolivia wangjueolivia updated style
-3 contributors @MingxiaoGuo @wangjueolivia @ElaineMa4
-RawBlameHistory     
-272 lines (231 sloc)  4.42 KB
 /***************************************************/
 /******************** override *********************/
 /***************************************************/
@@ -182,10 +164,9 @@ img.cover{
   object-fit: cover;
   width:100%;
   height:180px;
-
 }
 #ownsub{
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 .openings{
   margin:20px;
@@ -203,7 +184,7 @@ img.cover{
 }
 
 .words {
-  font-size: 12px;
+  font-size: 15px;
 }
 .newName {
   font-size: 22px;
@@ -284,16 +265,41 @@ img.cover{
 
 /* restDetail */
 #map {
-  width: 400px;
+  /*width: 400px;*/
   height: 240px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 #ownsub{
   font-size: 30px;
 }
-.restInfo {
 
-}
 .comments{
   margin: 10px 50px 0 50px;
+}
+td {
+  margin-left: 30px;
+}
+.restDetailContainer .row {
+  margin-top: 30px;
+}
+
+
+/* about */
+.AboutUs{
+  background-color:transparent;
+  color:rgba(0, 0,0, 0.7);
+  /*width:400px;*/
+  height:100%;
+  border-radius:20px;
+  margin-top: 20px;
+  /*float: right;*/
+  /*margin-right: 100px;*/
+}
+.aboutULDiv ul {
+  margin-left: -40px; 
+}
+.aboutBody{
+  background-image: url("../images/about.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }

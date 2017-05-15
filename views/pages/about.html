@@ -2,51 +2,37 @@
 <html>
 <head>
   <% include ../partials/head %>
-  <style>
-  .AboutUs{
-   background-color:transparent;
-   color:rgba(0, 0,0, 0.7);
-   width:400px;
-   height:100%;
-   border-radius:20px;
-   float: right;
-   margin-right: 100px;
-  }
-  body{
-    background-image: url("../images/about.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-  </style>
 </head>
 
-<body>
+<body class="aboutBody">
   <% include ../partials/nav %>
   <div class = "container">
-   <div class = "row">
-    <div class = "col-md-12">
+   <div class = "row col-md-6 col-md-offset-4 col-lg-5 col-lg-offset-8">
       <div class ="AboutUs animated swing">
        <div class = "content" style = "padding:20px;">
-        <h4 style = "text-align: center; font-family: 'Sofia';font-size: 30px;">About Us</h4>
-        <ul style = "font-family: 'Alef';font-size: 14px;">
-        <span>This site aims to help people find great local Chinese restaurants in Bay area.</span><br><br>
-        <span><b>Features of this project:</b></span><br>
-        <li><b>Search Box</b> - Surpported searching based on name and location.</li>
-        <li><b>Database Connection</b> - All the restaurants information are fetched from firebase</li>
-        <li><b>Customized Style</b> - Style and animation inspired from the class lectures</li>
-        <li><b>UI & UX Design</b> - We designed our own style and drawn our logo and footer</li>
-        <li><b>Tech Involved</b> - HTML, CSS, Javascript, BootStrap, NodeJs, firebase, googleMap API</li>
-        </ul>
+        <h1 style = "text-align: center; font-family: 'Antic Slab', serif;">About Us</h1>
+        <div>
+          <h2 style = "font-family: 'Alef';">This site aims to help people find great Chinese restaurants in Bay area.</h2>
+        </div>
+        <br><br>
+        <div class="aboutULDiv" style ="font-family: 'Alef';font-size: 14px;">
+          <h3 >Features of this project:</h3>
+          <ul><b>Search Box</b> - Surpported searching based on name and location.</ul>
+          <ul><b>Database Connection</b> - All the restaurants information are fetched from firebase</ul>
+          <ul><b>Customized Style</b> - Style and animation inspired from the class lectures</ul>
+          <ul><b>UI & UX Design</b> - We designed our own style and drawn our logo and footer</ul>
+          <ul><b>Tech Involved</b> - HTML, CSS, Javascript, BootStrap, NodeJs, firebase, googleMap API</ul>
+        </div>
        </div>
-        <div id = "contacts" style = "padding:20px;" >
-          <h4 style = "font-family: 'Aladin';font-size: 30px; text-align:center;" >Contacts:</h4>
-          <ul style = "font-family: 'Aladin';font-size: 14px;">
-            <li>Address: 1 Washington Sq,<br>San Jose, CA 95192</li>
-            <li>Tel: 123-456-6785</li>
-          </ul>
+        <div style = "padding:20px;" >
+          <h1 style = "font-family: 'Antic Slab', serif; text-align:center;" >Contacts:</h1>
+          <div style = "font-family: 'Aladin', cursive;font-size: 20px;">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;<span>1 Washington Sq, San Jose, CA 95192</span>
+            <br>
+            <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;<span>123-456-6785</span>
+          </div>
         </div>
       </div>
-     </div>
     </div>
  </div>
   </body>

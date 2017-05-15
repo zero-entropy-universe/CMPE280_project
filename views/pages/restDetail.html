@@ -1,99 +1,100 @@
 <html>
 <head>
 	<% include ../partials/head %>
-
-	<style>
-/* 	html,
-body {
-	font-family: Arial, sans-serif;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-} */
-/*	#map {
-		height: 300px;
-		width: 500px;
-	}*/
-/* 	.row {
-height: 10px;
-margin: 10px 0 20px 0;
-} */
-
-	</style>
 </head>
 <body>
 	<% include ../partials/nav %>
-	<div class="container">
-		<div>
-				<img class="cover animated fadeInDown" src="../images/fs.jpg">
-		</div><br>
-
-		<div class="row restInfo">
-			<div class="col-xs-2">
+	<div class="container restDetailContainer">
+		<div class="col-md-11">
+			<!-- <img class="cover animated fadeInDown" src="../images/fs.jpg"> -->
+		</div>
+		<div class="row col-md-10 col-md-offset-1">
+			<div class="col-md-6 pictures">
+				<img src="<%= restaurantInfo.image%>"  class="panel-body animated fadeInLeftBig" style="float:right;width:550px;">
 			</div>
-			<div class="col-xs-4 pictures">
-				<img src="<%= restaurantInfo.image%>"  class="panel-body" style="float:right;width:500px;">
-			</div>
-			<div class="col-xs-4">
-
-				<span id="ownsub" class="animated swing"><%= restaurantInfo.name %></span>
+			<div class="col-md-6">
+				<div id="ownsub" class="animated swing" style="font-family: 'Aladin', cursive;font-size: 40px;">
+					<%= restaurantInfo.name %>
+				</div>
 				<div id="address">
-					<p><span class="glyphicon glyphicon-map-marker"></span> <%= restaurantInfo.address %></p>
+					<a class="ui blue image label animated fadeInRightBig" style="font-size: 15px">
+					  <i class="fa fa-map" aria-hidden="true"></i>&nbsp;
+					  <%= restaurantInfo.address %>
+					</a>
 				</div>
 				<div id="phone">
-					<p><span class="glyphicon glyphicon-phone"></span> <%= restaurantInfo.phone %></p>
-					<!-- <%= restaurantInfo.name %> -->
+					<a class="ui image label animated fadeInRightBig" style="font-size: 13px;">
+					  <i class="fa fa-phone" aria-hidden="true"></i>
+					  <%= restaurantInfo.phone %>
+					</a>
 				</div>
-				<div id="map" class="google map" ></div>
+				<div id="map" class="google map animated fadeInRightBig" style=";box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 16px 0 rgba(0, 0, 0, 0.19); border-radius: 10px;"></div>
 			</div>
-			<div class="col-xs-2">
-			</div>
-
-
+			<br>
 		</div>
 		<!-- comment list display -->
-		<div class="row col-md-10 comments">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Comments</th>
-						<th>Rating</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% for (var i=0;i<commentList.length;i++){%>
+		<div class="row col-md-9 col-md-offset-1">
+			<% if (commentList.length != 0) { %>
+				<table class="table table-striped" style="border-radius: 20px;">
+					<thead>
 						<tr>
-							<td><%= commentList[i].content%></td>
-							<td><%=commentList[i].rating%></td>
-
+							<th>Comments</th>
+							<th>Rating</th>
 						</tr>
-					<% }%>
-				</tbody>
-			</table>
-		</div>  <!-- end comments list display -->
+					</thead>
+					<tbody>
+						<% for (var i=0;i< commentList.length;i++){%>
+							<tr>
+								<td style="width: 550px;">
+									<div class="ui stacked segment">
+										<p><%= commentList[i].content%></p>
+									</div>
+								</td>
+								<td>
+									<div class="ui huge star rating displayRating" data-rating="<%= commentList[i].rating%>">
+										<% for (var j = 0; j < commentList[i].rating; j++) { %>
+									  	<i class="icon active"></i>
+									  <% } %>
+									  <% for (var j = 0; j < 5 - commentList[i].rating; j++) { %>
+									  	<i class="icon"></i>
+									  <% } %>
+									</div>
+								</td>
+							</tr>
+						<% }%>
+					</tbody>
+				</table>
+			<% } else { %>
+				<div class="ui piled segment">
+				  <h4 class="ui header">Comments</h4>
+				  <p>There is no comment yet, be the first one to comment!</p>
+				</div>
+			<% } %>
+		</div>
+		<hr/>
 		<!-- write comment -->
-		<div class="col-md-2">
-			</div>
-		<div class="row col-md-8">
+		<div class="row col-md-9 col-md-offset-1">
 			<label>Leave your comment here</label><br>
-			<div class="ui huge star rating">
+			<div class="ui huge star rating" id="myRating">
 			  <i class="icon"></i>
 			  <i class="icon"></i>
 			  <i class="icon"></i>
 			  <i class="icon"></i>
 			  <i class="icon"></i>
 			</div>
-			<form class="ui form">
+			<div class="ui form">
 				<div class="field">
 			    <textarea id="txtComment"></textarea>
 			  </div>
 			  <button class="btn btn-primary" id="btnSubmitComment" tag="<%= commentId%>">Submit</button>
-			</form>
+			</div>
 		</div>
 	</div>
 
 		<% include ../partials/footer%>
 		<script>
+		$('.ui.huge.star.rating').rating();
+		var rating = 0;
 		var map;
 		var geocoder;
 		var address = "<%= restaurantInfo.address %>";
@@ -150,25 +151,34 @@ margin: 10px 0 20px 0;
 		}
 
 		$(document).ready(function () {
-			$('.ui.rating').rating();
+
 
 			$("#btnSubmitComment").on("click", function () {
 				//TODO: add user login
 				var data = {
 					content: $("#txtComment").val(),
-					rating: 5,
+					rating: rating,
 					userId: "some_id",
 					commentId: $(this).attr("tag")
 				};
 				$.post("/restDetail/addComment", data, function (result) {
 					if (result.done) {
 						showNotification("top", "center", "success", result.message);
+						setTimeout(location.reload(), 3000);
 					} else {
 						showNotification("top", "center", "danger", result.message)
 					}
 				});
 
 			});
+
+			$("#myRating").rating('setting', 'onRate', function(value) {
+		      rating = value;
+		      console.log(rating);
+		  });
+
+		  $(".displayRating").rating('disable');
+
 
 			function showNotification(from, align, type, message){
 	      $.notify({
