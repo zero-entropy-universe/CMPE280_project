@@ -312,3 +312,16 @@ td {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+
+/*  group members */
+.groupImage {
+  /*display: block;
+  max-width: 100px;
+  max-height: 100px;
+  width:auto; */
+  height: 100px;;
+}
+
+
+
+/* group members end */
