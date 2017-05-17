@@ -1,9 +1,6 @@
 var express = require('express');
 var router = express.Router();
 module.exports = function (firebase) {
-
-
-
   router.get('/', function(req, res) {
     console.log("in all restaurant");
     firebase.database().ref("/restaurant/").once('value').then(function(snapshot) {
@@ -22,8 +19,5 @@ module.exports = function (firebase) {
       res.render('pages/newRes',{temp:arr});
     });
   });
-
-
-
    return router;
 };
